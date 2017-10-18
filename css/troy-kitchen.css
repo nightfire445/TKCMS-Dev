@@ -1,0 +1,24 @@
+.center {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+
+#stallList {
+    padding: 0;
+    margin: 0 10;
+    columns: 5;
+    list-style-type: none;
+}
+
+#stallList li{
+    font-size: 20px;
+    text-align: center;
+    border: solid;   
+}
+
+#content {
+    border: solid;
+    text-align: center;
+    font-size: 3em;
+}
