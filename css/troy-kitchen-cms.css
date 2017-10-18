@@ -1,0 +1,103 @@
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar-brand {
+  color: white!important;
+}
+
+.navbar a {
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-nav {
+  padding-top: 17px;
+  float: right;
+}
+
+.nav-item {
+  margin: 4px;
+}
+
+#vendors_table {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.vendor {
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  background-color: lightgray;
+  border: 1px solid black;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+#vendors_container {
+  width: 300px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.vendor_name {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.dropdown-item {
+  display: block;
+  border: none;
+  background: none;
+  padding: 10px;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: lightblue;
+}
+
+.dropdown-menu {
+  margin-top: 0px;
+  padding-top: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  min-width: 122px;
+}
+
+#add_vendor_container {
+  width: 40%;
+  float: right;
+  background-color: lightgray;
+  border: 2px solid black;
+  padding: 30px;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 750px) {
+  #vendors_container {
+    width: 620px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  #vendors_container {
+    width: 920px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #vendors_container {
+    width: 1220px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
