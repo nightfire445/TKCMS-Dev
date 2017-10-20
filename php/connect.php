@@ -8,9 +8,9 @@ $password = $dbparts['pass'];
 $database = ltrim($dbparts['path'],'/');
 
 try {
-    $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+    $dbconn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
     // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected successfully";
     }
 catch(PDOException $e)
