@@ -7,7 +7,8 @@ if( !isset($dbconn) ){
 $create_user = 		"CREATE TABLE IF NOT EXISTS user (
                   	username varchar(50) PRIMARY KEY,
                   	salt varchar(100) NOT NULL,
-                  	salted_password varchar(100) NOT NULL
+                  	salted_password varchar(100) NOT NULL,
+                  	admin bit NOT NULL,
                 	) COLLATE utf8_unicode_ci;";
 
 
