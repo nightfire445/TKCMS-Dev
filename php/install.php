@@ -3,12 +3,11 @@ if( !isset($dbconn) ){
 	require "./connect.php";
 }
 
-
 $create_user = 		"CREATE TABLE IF NOT EXISTS user (
                   	username varchar(50) PRIMARY KEY,
                   	salt varchar(100) NOT NULL,
                   	salted_password varchar(100) NOT NULL,
-                  	admin bit NOT NULL,
+                  	admin bit NOT NULL
                 	) COLLATE utf8_unicode_ci;";
 
 
@@ -17,7 +16,7 @@ $create_vendor =	"CREATE TABLE IF NOT EXISTS vendor (
 					name varchar(500),
 					description varchar(500),
 					deployed bit NOT NULL,
-					location varchar(100),
+					location varchar(100)
 					) COLLATE utf8_unicode_ci;";
 
 $create_menu =		"CREATE TABLE IF NOT EXISTS menu (
