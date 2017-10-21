@@ -14,11 +14,40 @@
 #stallList li{
     font-size: 20px;
     text-align: center;
-    border: solid;   
+    border: solid;
 }
 
 #content {
     border: solid;
     text-align: center;
     font-size: 3em;
+}
+
+#jumbotron {
+  background-color: white;
+}
+
+#tkLogo {
+  width: 20%;
+  height: 20%;
+  display: block;
+  margin: 0 auto;
+}
+
+.page-header {
+  background-color: inherit;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 2px;
+}
+
+#hours {
+  float: right;
+  display: block;
+  padding-right: 30px;
+  position: relative;
+  top: 30px;
+  margin: 0 auto;
 }
