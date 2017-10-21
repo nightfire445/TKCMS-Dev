@@ -39,7 +39,7 @@
   margin-right: 5px;
 }
 
-#vendors_container {
+.vendors_container {
   width: 300px;
   margin: auto;
   margin-bottom: 20px;
@@ -47,7 +47,6 @@
 
 .vendor_name {
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .dropdown-item {
@@ -79,8 +78,38 @@
   margin-right: 5%;
 }
 
+#btn_group_container {
+  margin-top: 26px;
+  float: right;
+}
+
+.btn_container {
+  margin-top: 10px;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
+
+.type_label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#header_container {
+  height: 100px;
+  width: 80%;
+  margin: auto;
+}
+
+#current_location {
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 750px) {
-  #vendors_container {
+  .vendors_container {
     width: 620px;
     margin: auto;
     margin-bottom: 20px;
@@ -95,7 +124,7 @@
 }
 
 @media screen and (min-width: 1100px) {
-  #vendors_container {
+  .vendors_container {
     width: 920px;
     margin: auto;
     margin-bottom: 20px;
@@ -103,7 +132,7 @@
 }
 
 @media screen and (min-width: 1400px) {
-  #vendors_container {
+  .vendors_container {
     width: 1220px;
     margin: auto;
     margin-bottom: 20px;

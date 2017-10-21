@@ -11,6 +11,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <!-- Page Header -->
     <nav class="navbar navbar-inverse">
       <a class="navbar-brand" href="#">Troy Kitchen CMS</a>
       
@@ -18,14 +19,24 @@
         <a class="nav-item nav-link" href="#">Sign out</a>
       </div>
     </nav>
+    
+    <!-- Page Content -->
     <div id="container">
-      <div id="vendors_container"> 
+      <div id="header_container">
+        <div id="current_location">Current Location: Schenectady<br/><button class="btn btn-primary">Change Location</button></div>
       </div>
-      <div id="vendors_info">
+      <div class="vendors_container">
+        <div class="type_label">Active Vendors: <button class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button></div>
+        <div id="active_vendors_container"> 
+        </div>
       </div>
-      <div id="add_vendors_container">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button>
+      <div class="vendors_container">
+        <div class="type_label">Inactive Vendors:</div>
+        <div id="inactive_vendors_container"> 
+        </div>
       </div>
+      
+      <!-- Modals -->
       <div class="modal fade" id="add_vendors">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -42,16 +53,16 @@
                   <input type="text" class="form-control" id="vendor-name">
                 </div>
                 <div class="form-group">
-                  <label for="description" class="form-control-label">Description</label>
+                  <label for="description" class="form-control-label">Description:</label>
                   <input type="text" class="form-control" id="description">
                 </div>
                 <div class="form-group">
-                  <label for="menu" class="form-control-label">Menu</label>
-                  <input type="password" class="form-control" id="menu">
+                  <label for="image" class="form-control-label">Upload Image(s)</label>
+                  <input type="file" class="form-control" id="images" multiple>
                 </div>
                 <div class="form-group">
-                  <label for="image" class="form-control-label">Image</label>
-                  <input type="password" class="form-control" id="image">
+                  <label for="menu" class="form-control-label">Upload Menu</label>
+                  <input type="file" class="form-control" id="menu">
                 </div>
               </form>
             </div>
@@ -61,6 +72,43 @@
           </div>
         </div>
       </div>
+      
+      <div class="modal fade" id="edit_vendor">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Vendor</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="edit_vendor">
+                <div class="form-group">
+                  <label for="vendor-name" class="form-control-label">Vendor Name:</label>
+                  <input type="text" class="form-control" id="vendor-name">
+                </div>
+                <div class="form-group">
+                  <label for="description" class="form-control-label">Description:</label>
+                  <input type="text" class="form-control" id="description">
+                </div>
+                <div class="form-group">
+                  <label for="image" class="form-control-label">Edit Image(s)</label>
+                  <input type="file" class="form-control" id="images" multiple>
+                </div>
+                <div class="form-group">
+                  <label for="menu" class="form-control-label">Edit Menu</label>
+                  <input type="file" class="form-control" id="menu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </body>
 </html>
