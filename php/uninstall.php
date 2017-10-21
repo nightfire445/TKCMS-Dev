@@ -4,7 +4,7 @@ if( !isset($dbconn) ){
 }
 
 
-$drop_tables = "DROP TABLE IF EXISTS user, vendor, menu, image, metadata_image;";
+$drop_tables = "DROP TABLE IF EXISTS product, user, vendor, menu, image, metadata_image;";
 
 try{
 
