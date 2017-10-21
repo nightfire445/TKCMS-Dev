@@ -57,6 +57,9 @@ $create_metadata_image =	"CREATE TABLE IF NOT EXISTS metadata_image (
  $result_3 = $dbconn->query($create_price);
  $result_4 = $dbconn->query($create_image);
  $result_5 = $dbconn->query($create_metadata_image);
+
+ error_log("Install.php: tables inserted");
+
 }
 catch (Exception $e){
     echo "Error: " . $e->getMessage();
