@@ -22,6 +22,7 @@ $create_menu =		"CREATE TABLE IF NOT EXISTS menu (
 					menu_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					visible bit NOT NULL,
 					menu_url nvarchar(2083) NOT NULL,
+					vendor_FK INT(5) NOT NULL,
 					FOREIGN KEY (vendor_FK) REFERENCES vendor (vendor_id)
 					) COLLATE utf8_unicode_ci;";
 
@@ -30,17 +31,21 @@ $create_price = 	"CREATE TABLE IF NOT EXISTS product (
 					product_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					price decimal(5,2) NOT NULL,
 					description varchar(500),
+					menu_FK INT(5) NOT NULL,
 					FOREIGN KEY (menu_FK) REFERENCES menu (menu_id)
 					) COLLATE utf8_unicode_ci;";
 
 $create_image =		"CREATE TABLE IF NOT EXISTS image (
 					image_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					image_url nvarchar(2083) NOT NULL,
+					vendor_FK INT(5) NOT NULL,
 					FOREIGN KEY (vendor_FK) REFERENCES vendor (vendor_id)
 					) COLLATE utf8_unicode_ci;";
 
 $create_metadata_image =	"CREATE TABLE IF NOT EXISTS metadata_image (
 							alt_text varchar(100),
+							vendor_FK INT(5) NOT NULL,
+							image_FK INT(5) NOT NULL,
 							FOREIGN KEY (image_FK) REFERENCES image (image_id),
 							FOREIGN KEY (vendor_FK) REFERENCES vendor (vendor_id)
 							) COLLATE utf8_unicode_ci;";
