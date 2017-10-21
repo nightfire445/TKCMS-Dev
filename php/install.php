@@ -30,19 +30,19 @@ $create_price = 	"CREATE TABLE IF NOT EXISTS product (
 					product_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					price decimal(5,2) NOT NULL,
 					description varchar(500),
-					FOREIGN KEY(menu_id) REFERENCES menu(menu_id)
+					FOREIGN KEY(menu) REFERENCES menu(menu_id)
 					) COLLATE utf8_unicode_ci;";
 
 $create_image =		"CREATE TABLE IF NOT EXISTS image (
 					image_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					image_url nvarchar(2083) NOT NULL,
-					FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id)
+					FOREIGN KEY(vendor) REFERENCES vendor(vendor_id)
 					) COLLATE utf8_unicode_ci;";
 
 $create_metadata_image =	"CREATE TABLE IF NOT EXISTS metadata_image (
 							alt_text varchar(100),
-							FOREIGN KEY(image_id) REFERENCES image(image_id),
-							FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id)
+							FOREIGN KEY(image) REFERENCES image(image_id),
+							FOREIGN KEY(vendor) REFERENCES vendor(vendor_id)
 							) COLLATE utf8_unicode_ci;";
 
 
