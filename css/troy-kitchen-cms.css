@@ -12,8 +12,9 @@
 }
 
 .navbar-nav {
-  padding-top: 17px;
-  float: right;
+  padding-top: 8px;
+  width: 100%;
+  text-align: right;
 }
 
 .nav-item {
@@ -83,6 +84,13 @@
     width: 620px;
     margin: auto;
     margin-bottom: 20px;
+  }
+  
+  .navbar-nav {
+    padding-top: 17px;
+    float: right;
+    margin-right: 20px;
+    width: auto;
   }
 }
 

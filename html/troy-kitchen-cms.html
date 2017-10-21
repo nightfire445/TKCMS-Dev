@@ -11,13 +11,11 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse">
-      <a class="navbar-brand" href="#">Troy Kitchen Content Management System</a>
+    <nav class="navbar navbar-inverse">
+      <a class="navbar-brand" href="#">Troy Kitchen CMS</a>
       
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="#">Sign out</a>
-        </div>
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="#">Sign out</a>
       </div>
     </nav>
     <div id="container">
@@ -25,26 +23,43 @@
       </div>
       <div id="vendors_info">
       </div>
-      <div id="add_vendor_container">
-        <form id="add_vendor">
-          <div class="form-group">
-            <label for="vendor-name" class="form-control-label">Vendor Name:</label>
-            <input type="text" class="form-control" id="vendor-name">
+      <div id="add_vendors_container">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button>
+      </div>
+      <div class="modal fade" id="add_vendors">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Vendor</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="add_vendor">
+                <div class="form-group">
+                  <label for="vendor-name" class="form-control-label">Vendor Name:</label>
+                  <input type="text" class="form-control" id="vendor-name">
+                </div>
+                <div class="form-group">
+                  <label for="description" class="form-control-label">Description</label>
+                  <input type="text" class="form-control" id="description">
+                </div>
+                <div class="form-group">
+                  <label for="menu" class="form-control-label">Menu</label>
+                  <input type="password" class="form-control" id="menu">
+                </div>
+                <div class="form-group">
+                  <label for="image" class="form-control-label">Image</label>
+                  <input type="password" class="form-control" id="image">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Add Vendor</button>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="description" class="form-control-label">Description</label>
-            <input type="password" class="form-control" id="description">
-          </div>
-          <div class="form-group">
-            <label for="menu" class="form-control-label">Menu</label>
-            <input type="password" class="form-control" id="menu">
-          </div>
-          <div class="form-group">
-            <label for="image" class="form-control-label">Image</label>
-            <input type="password" class="form-control" id="image">
-          </div>
-          <button type="submit" class="btn btn-primary">Add Vendor</button>
-        </form>
+        </div>
       </div>
     </div>
   </body>
