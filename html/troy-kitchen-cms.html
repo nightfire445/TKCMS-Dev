@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/troy-kitchen-cms.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/troy-kitchen-cms.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!-- Page Header -->
+    <nav class="navbar navbar-inverse">
+      <a class="navbar-brand" href="#">Troy Kitchen CMS</a>
+      
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="#">Sign out</a>
+      </div>
+    </nav>
+    
+    <!-- Page Content -->
+    <div id="container">
+      <div id="header_container">
+        <div id="current_location">
+          <div id="location">Current Location: Troy</div>
+          <div class='dropdown btn-group'>
+            <button class='btn btn-primary dropdown-toggle' type='button' id='changeLocation' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Change Location</button>
+            <div id='dropdownMenu' class='dropdown-menu' aria-labelledby='dropdownMenu'>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="btn_group_container">
+        <button id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button>
+      </div>
+      <div class="vendors_container">
+        <div class="type_label">Active Vendors:</div>
+        <div id="active_vendors_container"> 
+        </div>
+      </div>
+      <div class="vendors_container">
+        <div class="type_label">Inactive Vendors:</div>
+        <div id="inactive_vendors_container"> 
+        </div>
+      </div>
+      
+      <!-- Modals -->
+      <div class="modal fade" id="add_vendors">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Vendor</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="add_vendor">
+                <div class="form-group">
+                  <label for="vendor-name" class="form-control-label">Vendor Name:</label>
+                  <input type="text" class="form-control" id="vendor-name">
+                </div>
+                <div class="form-group">
+                  <label for="description" class="form-control-label">Description:</label>
+                  <input type="text" class="form-control" id="description">
+                </div>
+                <div class="form-group">
+                  <label for="image" class="form-control-label">Upload Image(s)</label>
+                  <input type="file" id="images" multiple>
+                </div>
+                <div class="form-group">
+                  <label for="menu" class="form-control-label">Upload Menu</label>
+                  <input type="file" id="menu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Add Vendor</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal fade" id="edit_vendor">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Vendor</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="edit_vendor">
+                <div class="form-group">
+                  <label for="vendor-name" class="form-control-label">Vendor Name:</label>
+                  <input type="text" class="form-control" id="vendor-name">
+                </div>
+                <div class="form-group">
+                  <label for="description" class="form-control-label">Description:</label>
+                  <input type="text" class="form-control" id="description">
+                </div>
+                <div class="form-group">
+                  <label for="image" class="form-control-label">Edit Image(s)</label>
+                  <input type="file" id="images" multiple>
+                </div>
+                <div class="form-group">
+                  <label for="menu" class="form-control-label">Edit Menu</label>
+                  <input type="file" id="menu">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>
