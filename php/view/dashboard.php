@@ -1,5 +1,5 @@
 <?php
 $doc = new DOMDocument();
-$doc->loadHTMLFile("../../html/troy-kitchen-cms.html");
+$doc->loadHTMLFile("https://tk-cms-dev.herokuapp.com/html/troy-kitchen-cms.html");
 echo $doc->saveHTML();
 ?>
