@@ -1,8 +1,8 @@
 $(document).ready(function() {
   //Needs to be dynamically loaded once back-end is created
   //Static for prototype
-  displayVendors(1);
-  displayVendors(0);
+  displayVendors(1, 5);
+  displayVendors(0, 2);
   populateLocation();
   //Dropdown content needs to be dynamically generated
   //Probably change it to custom dropdown because this sux
@@ -10,16 +10,16 @@ $(document).ready(function() {
   
 });
 
-function displayVendors(state) {
-  var vendors = 5;
+function displayVendors(state, num) {
+  vendors = num;
   var generate_vendors = "";
-  var buttons = "<div class='btn_container'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#edit_vendor'>Edit Vendor</button><br/>";
+  var buttons = "<div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event)'>Edit Vendor</button><br/>";
   if(state == 1)
     buttons += "<button  type='button' class='btn btn-danger btn-xs'>Deactivate</button></div>"
   else
     buttons += "<button type='button' class='btn btn-success btn-xs'>Activate</button></div>"
   for(var i = 0; i < vendors; i++) {
-    generate_vendors += "<div class='vendor'><div class='vendor_name'>Vendor " + (i+1) + buttons + "</div></div>";
+    generate_vendors += "<div class='vendor'><div class='vendor_name'>Vendor " + (i+1) + "</div>" + buttons + "</div>";
 
   }
   //generate_vendors += "</tr></table>";
@@ -40,6 +40,10 @@ function populateLocation() {
 
 function updateLocation(event) {
   $("#location").html("Current Location: " + event.currentTarget.innerText);
-  displayVendors(1);
-  displayVendors(0);
+  displayVendors(1, 5);
+  displayVendors(0, 2);
+}
+
+function populateInfo(event) {
+  $("#edit_vendor").modal();
 }
