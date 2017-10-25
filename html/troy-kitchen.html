@@ -21,23 +21,30 @@
 <body>
   <div class="page-header">
     <img src="../resources/logo.png" alt="logo" id="tkLogo">
-    <div class="dropdown" id="hours">
-      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Hours
-    <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li>Mon - Fri: 12pm - 12am</li>
-        <li> Sat: 12pm - 1am</li>
-        <li> Sun: 12pm - 4pm</li>
-      </ul>
+    <div id="hours" class="dropdown dropdown-dark">
+      <select name="dark" class="dropdown-select">
+        <option value="general"> General Hours </option>
+        <option value="bar"> Bar Hours </option>
+        <option value="halal"> Halal Palace </option>
+        <option value="island"> M&K Island Hut </option>
+        <option value="grandma">Grandma G's</option>
+        <option value="chopped">Chopped Cheezus</option>
+      </select>
+    </div>
+    <div class="address">
+      77 Congress St, Troy, NY 12180
+    </div>
+    <div class="phone">
+      (518) 268-0068
     </div>
   </div>
   <div class="center">
     <ul id="stallList">
-      <li class="stall" data-desc="About Troy Kitchen">About</li>
-      <li class="stall" data-desc="Stall One Info"> Stall One</li>
-      <li class="stall" data-desc="Stall Two Info"> Stall Two</li>
-      <li class="stall" data-desc="Stall Three Info"> Stall Three</li>
-      <li class="stall" data-desc="Stall Four Info"> Stall Four</li>
+      <li class="stall" data-desc="About Troy Kitchen">Stall One</li>
+      <li class="stall" data-desc="Stall One Info"> Stall Two</li>
+      <li class="stall" data-desc="Stall Two Info"> Stall Three</li>
+      <li class="stall" data-desc="Stall Three Info"> Stall Four</li>
+      <li class="stall" data-desc="Stall Four Info"> Stall Five</li>
     </ul>
 
     <div id="content">
