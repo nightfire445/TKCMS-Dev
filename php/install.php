@@ -10,7 +10,6 @@ $create_user = 		"CREATE TABLE IF NOT EXISTS user (
                   	admin bit NOT NULL
                 	) COLLATE utf8_unicode_ci;";
 
-
 $create_vendor =	"CREATE TABLE IF NOT EXISTS vendor (	
 					vendor_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					name varchar(500),
@@ -26,8 +25,7 @@ $create_menu =		"CREATE TABLE IF NOT EXISTS menu (
 					vendor_FK INT(5) UNSIGNED NOT NULL,
 					FOREIGN KEY (vendor_FK) REFERENCES vendor (vendor_id)
 					) COLLATE utf8_unicode_ci;";
-
-
+					
 $create_image =		"CREATE TABLE IF NOT EXISTS image (
 					image_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					image_url nvarchar(2083) NOT NULL,
