@@ -55,6 +55,7 @@
   background: none;
   padding: 10px;
   width: 100%;
+  font-weight: normal;
 }
 
 .dropdown-item:hover {
@@ -66,7 +67,9 @@
   padding-top: 0px;
   border-top: 0px;
   border-left: 0px;
-  min-width: 122px;
+  min-width: 132px;
+  border: none;
+  padding-bottom: 0px;
 }
 
 #add_vendor_container {
@@ -79,8 +82,10 @@
 }
 
 #btn_group_container {
-  margin-top: 26px;
-  float: right;
+  width: 80%;
+  height: 35px;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .btn_container {
@@ -100,12 +105,29 @@
   height: 100px;
   width: 80%;
   margin: auto;
+  border-bottom: 2px solid grey;
 }
 
 #current_location {
   float: left;
   font-size: 16px;
   font-weight: bold;
+}
+
+#location {
+  margin-bottom: 5px;
+}
+
+#add_btn {
+  float: right;
+}
+
+.btn-primary, .btn-danger, .btn-success, .btn-default {
+  background-image: none;
+}
+
+#changeLocation {
+  margin-bottom: 0px;
 }
 
 @media screen and (min-width: 750px) {
@@ -116,7 +138,7 @@
   }
   
   .navbar-nav {
-    padding-top: 17px;
+    padding-top: 8px;
     float: right;
     margin-right: 20px;
     width: auto;

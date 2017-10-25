@@ -23,10 +23,20 @@
     <!-- Page Content -->
     <div id="container">
       <div id="header_container">
-        <div id="current_location">Current Location: Schenectady<br/><button class="btn btn-primary">Change Location</button></div>
+        <div id="current_location">
+          <div id="location">Current Location: Troy</div>
+          <div class='dropdown btn-group'>
+            <button class='btn btn-primary dropdown-toggle' type='button' id='changeLocation' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Change Location</button>
+            <div id='dropdownMenu' class='dropdown-menu' aria-labelledby='dropdownMenu'>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="btn_group_container">
+        <button id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button>
       </div>
       <div class="vendors_container">
-        <div class="type_label">Active Vendors: <button class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button></div>
+        <div class="type_label">Active Vendors:</div>
         <div id="active_vendors_container"> 
         </div>
       </div>
