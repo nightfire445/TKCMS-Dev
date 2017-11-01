@@ -139,6 +139,10 @@
   margin: auto;
 }
 
+#delete_vendor {
+  float: left;
+}
+
 @media screen and (min-width: 750px) {
   .vendors_container {
     width: 620px;
