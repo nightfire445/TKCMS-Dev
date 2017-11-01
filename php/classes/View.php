@@ -11,19 +11,8 @@ class View
     }
 	
     public function output(){
-        return "<p>" . $this->model->string . "</p>";
+        require_once($this->model->template);
     }
 
-    public function loadHTMLFile($filelocation){
-        $this->dom = new DOMDocument();
-        $this->dom->loadHTMLFile($filelocation);
-    }
-
-    public function outputDOM(){
-        if(isset($this->dom)){
-            echo $this->dom->saveHTML();
-        }
-
-    }
 }
 ?>
