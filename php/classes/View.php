@@ -14,10 +14,9 @@ class View
         return "<p>" . $this->model->string . "</p>";
     }
 
-    public function loadHTMLFile(filelocation){
+    public function loadHTMLFile($filelocation){
         $this->dom = new DOMDocument();
-        $this->dom->loadHTMLFile(filelocation);
-
+        $this->dom->loadHTMLFile($filelocation);
     }
 
     public function outputDOM(){
