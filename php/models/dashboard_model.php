@@ -20,7 +20,7 @@ class Model
 
     public function loadVendors(){
     	$get_vendors = "SELECT * FROM `vendor`";
-    	$this->vendors = $dbconn->query($get_vendors);
+    	$this->vendors = $this->dbconn->query($get_vendors);
     	return;
     }
 
