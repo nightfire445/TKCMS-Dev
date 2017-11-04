@@ -38,11 +38,27 @@
       <div class="vendors_container">
         <div class="type_label">Active Vendors:</div>
         <div id="active_vendors_container"> 
+        <?php 
+          foreach ($vendors as $vendor){
+            if($vendor[deployed] ){
+              echo "<div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event)'>Edit Vendor</button><br/>";
+              echo "<div class='vendor'><p class='vendor_name'> . $vendor[name] . </p><button  type='button' class='btn btn-danger btn-xs'>Deactivate</button></div></div>";
+            }
+          } 
+        ?>
         </div>
       </div>
       <div class="vendors_container">
         <div class="type_label">Inactive Vendors:</div>
         <div id="inactive_vendors_container"> 
+          <?php 
+          foreach ($vendors as $vendor){
+            if(!$vendor[deployed]){
+              echo "<div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event)'>Edit Vendor</button><br/>";
+              echo "<div class='vendor'><p class='vendor_name'> . $vendor[name] . </p><button type='button' class='btn btn-success btn-xs'>Activate</button></div></div>";
+            }
+          } 
+        ?>
         </div>
       </div>
       

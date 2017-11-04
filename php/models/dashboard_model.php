@@ -5,9 +5,9 @@ class Model
     public $vendors;   
     private $dbconn;
 
-    require_once "./../connect.php";
-
     public function __construct(){
+        require_once "./../connect.php";
+        
         $this->string = "";
         $this->dbconn = $dbconn;
         $this->loadVendors();
