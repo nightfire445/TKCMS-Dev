@@ -6,7 +6,7 @@ class Model
     private $dbconn;
 
     public function __construct(){
-        require_once "./../connect.php";
+        require_once dirname(__FILE__). "/../connect.php";
         
         $this->string = "";
         $this->dbconn = $dbconn;
