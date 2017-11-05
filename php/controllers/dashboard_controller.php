@@ -14,7 +14,7 @@
 
 	    if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-	        
+	        echo "<script>alert(`1`)</script>";
 	    	if(isset($_POST["add_vendor"])){
 
 	    		if(  isset($_POST["vendor_name"]) && isset($_POST["description"])  ){
