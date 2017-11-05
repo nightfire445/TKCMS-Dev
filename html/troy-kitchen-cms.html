@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./../../css/troy-kitchen-cms.css">
+    <link rel="stylesheet" type="text/css" href="/css/troy-kitchen-cms.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./../../js/troy-kitchen-cms.js"></script>
+    <script type="text/javascript" src="/js/troy-kitchen-cms.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
@@ -73,27 +73,27 @@
               </button>
             </div>
             <div class="modal-body">
-              <form id="add_vendor">
+              <form id="add_vendor" action="/php/controllers/dashboard_controller.php" method="post">
                 <div class="form-group">
                   <label for="vendor-name" class="form-control-label">Vendor Name:</label>
-                  <input type="text" class="form-control" id="vendor-name">
+                  <input type="text" class="form-control" id="vendor-name" name="vendor-name">
                 </div>
                 <div class="form-group">
                   <label for="description" class="form-control-label">Description:</label>
-                  <input type="text" class="form-control" id="description">
+                  <input type="text" class="form-control" id="description" name="description">
                 </div>
                 <div class="form-group">
                   <label for="image" class="form-control-label">Upload Image(s)</label>
-                  <input type="file" id="images" multiple>
+                  <input type="file" id="images" name="images" multiple>
                 </div>
                 <div class="form-group">
                   <label for="menu" class="form-control-label">Upload Menu</label>
-                  <input type="file" id="menu">
+                  <input type="file" id="menu" name="menu">
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Add Vendor</button>
+              <button type="submit" class="btn btn-primary" name="add_vendor">Add Vendor</button>
             </div>
           </div>
         </div>
@@ -112,25 +112,25 @@
               <form id="edit_vendor">
                 <div class="form-group">
                   <label for="vendor-name" class="form-control-label">Vendor Name:</label>
-                  <input type="text" class="form-control" id="vendor-name">
+                  <input type="text" class="form-control" id="vendor-name" name="vendor-name">
                 </div>
                 <div class="form-group">
                   <label for="description" class="form-control-label">Description:</label>
-                  <input type="text" class="form-control" id="description">
+                  <input type="text" class="form-control" id="description" name="description">
                 </div>
                 <div class="form-group">
                   <label for="image" class="form-control-label">Edit Image(s)</label>
-                  <input type="file" id="images" multiple>
+                  <input type="file" id="images" name="images" multiple>
                 </div>
                 <div class="form-group">
                   <label for="menu" class="form-control-label">Edit Menu</label>
-                  <input type="file" id="menu">
+                  <input type="file" id="menu" name="menu">
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button id="delete_vendor" type="submit" class="btn btn-danger">Delete Vendor</button>
-              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button id="delete_vendor" type="submit" class="btn btn-danger" name="delete_vendor">Delete Vendor</button>
+              <button type="submit" class="btn btn-primary" name="save_changes">Save Changes</button>
             </div>
           </div>
         </div>
