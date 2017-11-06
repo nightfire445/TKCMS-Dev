@@ -31,11 +31,11 @@ class Model
     }
 
     public function storeVendor(){
-
+        echo "<script>console.log('storing vendor')</script>";
         if(isset($_POST["add_vendor"])){
-            //We need the vendor stored before we can store the images due to vendor id being a foriegn key 
+            //We need the vendor stored before storing images due to vendor_id foriegn key constraint
 
-            $insert_vendor = $this->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
+            $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
 
             $insert_vendor->execute(array(':name' => $_POST["vendor-name"], ':description' => $_POST["description"], ':location' => $_POST["location"], ':deployed' => 0 ));
 
