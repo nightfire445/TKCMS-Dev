@@ -33,7 +33,6 @@ class Model
     public function storeVendor(){
 
         if(isset($_POST["add_vendor"])){
-
             //We need the vendor stored before we can store the images due to vendor id being a foriegn key 
 
             $insert_vendor = $this->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
