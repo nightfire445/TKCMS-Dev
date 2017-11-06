@@ -31,8 +31,6 @@ class Model
     }
 
     public function storeVendor(){
-        echo "<script>console.log('storing vendor')</script>";
-        if(isset($_POST["add_vendor"])){
             //We need the vendor stored before storing images due to vendor_id foriegn key constraint
 
             $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
@@ -57,9 +55,6 @@ class Model
             }
 
             //TO DO: store the images and or menu in the db
-
-
-        }
 
 
         return;
