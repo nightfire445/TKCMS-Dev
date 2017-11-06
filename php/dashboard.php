@@ -7,7 +7,8 @@
 	$controller = new Controller($model);
 	$view = new View($controller, $model);
 	$view->output();
-	if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+	if(!empty($_POST)){
 		if(isset($_POST["add_vendor"])){
 			$controller->add_vendor();
 		}

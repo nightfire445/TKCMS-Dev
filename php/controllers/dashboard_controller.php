@@ -8,10 +8,10 @@
 	    }
 
 	    public function add_vendor(){
-
+	    	echo "<script>console.log('calling add_vendor')</script>";
 	    	if(  isset($_POST["vendor_name"]) && isset($_POST["description"])  ){
 				$this->model->store_vendor();
-				echo "<script>alert('vendor stored')</script>";
+				echo "<script>console.log('vendor stored')</script>";
 
 			}
 
