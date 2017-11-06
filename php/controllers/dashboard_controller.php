@@ -8,7 +8,7 @@
 	    }
 
 	    public function add_vendor(){
-
+	    	echo "<script>alert('1')</script>";
 		    if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 		        echo "<script>alert('1')</script>";
