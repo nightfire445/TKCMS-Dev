@@ -37,11 +37,6 @@ class Model
 
             $status = $insert_vendor->execute(array(':name' => $_POST["vendor-name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0 ));
 
-            $test = $this->dbconn->query("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES ('prog_test', 'ssssson', 0, 0) ");
-
-            echo "<script>console.log('insert_vendor - status: ". ($status->rowCount() > 0) . "');</script>";
-            throw new Exception("Error Processing Request", 1);
-            
             //images may or may not be included in adding the vendor.
 
             if(isset($_POST["images"])){
