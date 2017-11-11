@@ -35,7 +35,7 @@ class Model
 
             $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
 
-            $status = $insert_vendor->execute(array(':name' => $_POST["vendor-name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0 ));
+            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0 ));
 
             //images may or may not be included in adding the vendor.
 
