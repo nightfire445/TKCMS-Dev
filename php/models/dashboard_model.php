@@ -31,7 +31,7 @@ class Model
     }
 
     public function storeVendor(){
-            //We need the vendor stored before storing images due to vendor_id foreign key constraint
+            //We need the vendor stored before storing images due to vendor_id foriegn key constraint
 
             $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
 
