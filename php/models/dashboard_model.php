@@ -25,7 +25,6 @@ class Model
     }
 
     public function uploadImage(){
-        
 
         return;
     }
@@ -36,16 +35,9 @@ class Model
             //all or nothing with the data insertion
             $this->dbconn->beginTransaction();
 
-            if( isset($_POST["logo"]) ){
-                $log_filename = $_POST["logo"];
-            }
-            else{
-                $log_filename = NULL;
-            }
-
             $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed`, `logo` ) VALUES (:name, :description, :location, :deployed, :logo) ");
 
-            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => $log_filename));
+            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => isset($_POST["logo"]) ? $_POST["logo"] : null));
 
             //images may or may not be included in adding the vendor.
             if(isset($_POST["images"])){

@@ -11,6 +11,7 @@
 	if(!empty($_POST)){
 		if(isset($_POST["add_vendor"])){
 			$controller->add_vendor();
+			echo "<script>console.log('added vendor');</script>";;
 		}
 		
 	    //edit_vendor
