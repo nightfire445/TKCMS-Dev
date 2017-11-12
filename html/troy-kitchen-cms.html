@@ -42,10 +42,10 @@
           foreach ($vendors as $vendor){
             if($vendor[deployed] == 1 ){
 
-              $active_btn_container = "<div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event)'>Edit Vendor</button><br/>";
-              echo $active_btn_container;
+              //$active_btn_container = "";
+              //echo $active_btn_container;
 
-              $active_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor[name] . "</p><button  type='button' class='btn btn-danger btn-xs'>Deactivate</button></div></div>";
+              $active_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor[name] . "</p><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event)'>Edit Vendor</button><br/><button  type='button' class='btn btn-danger btn-xs'>Deactivate</button></div></div>";
               echo $active_vendor;
             }
           } 
@@ -59,10 +59,10 @@
           foreach ($vendors as $vendor){
             if($vendor[deployed] == 0){
             
-              $inactive_btn_container = "<div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event)'>Edit Vendor</button><br/>";
-              echo $inactive_btn_container;
+              //$inactive_btn_container = "";
+              //echo $inactive_btn_container;
 
-              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor[name] . "</p><button type='button' class='btn btn-success btn-xs'>Activate</button></div></div>";
+              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor[name] . "</p><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event)'>Edit Vendor</button><br/><button type='button' class='btn btn-success btn-xs'>Activate</button></div></div>";
               echo $inactive_vendor;
             }
           } 
