@@ -24,7 +24,7 @@ class Model
     	return;
     }
 
-    public function uploadImgur(){
+    public function uploadImage(){
         
 
         return;
@@ -35,15 +35,20 @@ class Model
 
             //all or nothing with the data insertion
             $this->dbconn->beginTransaction();
-            $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
 
-            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0));
+            if( !isset($_POST["logo"]) ){
+                $_POST["logo"] = NULL;
+            }
+
+            $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed`, `logo` ) VALUES (:name, :description, :location, :deployed, :logo) ");
+
+            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => $_POST["logo"] ));
 
             //images may or may not be included in adding the vendor.
             if(isset($_POST["images"])){
                 $image_urls = [];
                 foreach ($_POST["images"] as $value) {
-                    $imgur_url = $this->model->uploadImgur($value);
+                    $imgur_url = $this->model->uploadImage($value);
                     $image_urls[] = $imgur_url;
                 }
 
