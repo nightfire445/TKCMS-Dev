@@ -7,20 +7,20 @@ $create_user = 		"CREATE TABLE IF NOT EXISTS user (
                   	username varchar(50) PRIMARY KEY,
                   	salt varchar(100) NOT NULL,
                   	salted_password varchar(100) NOT NULL,
-                  	admin bit NOT NULL
+                  	admin TINYINT(1) NOT NULL
                 	) COLLATE utf8_unicode_ci;";
 
 $create_vendor =	"CREATE TABLE IF NOT EXISTS vendor (	
 					vendor_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 					name varchar(500),
 					description varchar(500),
-					deployed bit NOT NULL,
-					location INT(3)
+					deployed TINYINT(1) NOT NULL,
+					location INT(3),
+					logo varchar(500)
 					) COLLATE utf8_unicode_ci;";
 
 $create_menu =		"CREATE TABLE IF NOT EXISTS menu (
 					menu_id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-					visible bit NOT NULL,
 					menu_url nvarchar(2083) NOT NULL,
 					vendor_FK INT(5) UNSIGNED NOT NULL,
 					FOREIGN KEY (vendor_FK) REFERENCES vendor (vendor_id)
