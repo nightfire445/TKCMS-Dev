@@ -37,7 +37,7 @@ class Model
             $this->dbconn->beginTransaction();
             $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
 
-            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => FALSE ));
+            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 1 ));
 
 
             //images may or may not be included in adding the vendor.
@@ -52,7 +52,7 @@ class Model
                     $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
                     $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
                 }
-                
+            
 
             }
             //menu may or may not be included in adding the vendor.
