@@ -33,27 +33,38 @@ class Model
     public function storeVendor(){
             //We need the vendor stored before storing images due to vendor_id foriegn key constraint
 
+            //all or nothing with the data insertion
+            $this->dbconn->beginTransaction();
             $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed` ) VALUES (:name, :description, :location, :deployed) ");
 
-            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0 ));
+            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => FALSE ));
+
 
             //images may or may not be included in adding the vendor.
-
             if(isset($_POST["images"])){
                 $image_urls = [];
                 foreach ($_POST["images"] as $value) {
                     $imgur_url = $this->model->uploadImgur($value);
                     $image_urls[] = $imgur_url;
                 }
-                
-            }
 
+                foreach ($image_urls as $value) {
+                    $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+                    $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
+                }
+                
+
+            }
+            //menu may or may not be included in adding the vendor.
             if(isset($_POST["menu"]) ){
                $menu_url = $this->model->uploadImgur($_POST["menu"]);
-
+               $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `visible`, `vendor_FK`) VALUES (".$menu_url. ", 1 , (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+                $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
             }
 
             //TO DO: store the images and or menu in the db
+            $this->dbconn->commit();
+
 
 
         return;
