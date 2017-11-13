@@ -21,13 +21,6 @@ class Model
     public function loadVendors(){
     	$get_vendors = "SELECT * FROM `vendor`";
     	$this->vendors = $this->dbconn->query($get_vendors);
-        foreach ($this->vendors as $vendor) {
-
-            var_dump($vendor);
-            echo "vendor[deployed]: ". $vendor['deployed'];
-
-            # code...
-        }
     	return;
     }
 
