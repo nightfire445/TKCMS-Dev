@@ -45,8 +45,8 @@ class Model
             if(!empty($_POST["images"])){
                 $image_urls = [];
                 foreach ($_POST["images"] as $value) {
-                    $imgur_url = $this->model->uploadImage($value);
-                    $image_urls[] = $imgur_url;
+                    $image_url = $this->model->uploadImage($value);
+                    $image_urls[] = $image_url;
                 }
 
                 foreach ($image_urls as $value) {

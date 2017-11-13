@@ -9,12 +9,20 @@
 	$view->output();
 
 	if(!empty($_POST)){
-		echo "<script>console.log('is add vendor');</script>";
 		if(isset($_POST["add_vendor"])){
 			$controller->add_vendor();
-			echo "<script>console.log('added vendor');</script>";
 		}
-		
-	    //edit_vendor
+		//TO DO:
+		//edit_vendor
+
+	    //Activate Vendor
+
+		//Deactivate Vendor
+
+
+		echo "<meta http-equiv='refresh' content='0'>";
+
+
+
 	}
 ?>
