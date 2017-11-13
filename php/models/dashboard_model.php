@@ -34,12 +34,15 @@ class Model
     public function storeVendor(){
             //We need the vendor stored before storing images due to vendor_id foriegn key constraint
 
+
             $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed`, `logo` ) VALUES (:name, :description, :location, :deployed, :logo) ");
 
-            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => isset($_POST["logo"]) ? $_POST["logo"] : null));
+            //logo may or may not be included but needs some value to store the vendor.
+            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty(($_POST["logo"]) ? $_POST["logo"] : null));
 
+             
             //images may or may not be included in adding the vendor.
-            if(isset($_POST["images"])){
+            if(!empty($_POST["images"])){
                 $image_urls = [];
                 foreach ($_POST["images"] as $value) {
                     $imgur_url = $this->model->uploadImage($value);
@@ -53,14 +56,14 @@ class Model
             
 
             }
+
             //menu may or may not be included in adding the vendor.
-            if(isset($_POST["menu"]) ){
-               $menu_url = $this->model->uploadImgur($_POST["menu"]);
-               $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `visible`, `vendor_FK`) VALUES (".$menu_url. ", 1 , (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+            if(!empty($_POST["menu"]) ){
+               $menu_url = $this->model->uploadImage($_POST["menu"]);
+               $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
                 $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
             }
 
-            //TO DO: store the images and or menu in the db
 
 
         return;
