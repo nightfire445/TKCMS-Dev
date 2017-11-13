@@ -57,8 +57,6 @@
         <div id="inactive_vendors_container"> 
         <?php 
           foreach ($vendors as $vendor){
-            var_export($vendor);
-            throw new Exception("Error Processing Request", 1);
             if($vendor[deployed] == 0){
             
               //$inactive_btn_container = "";
