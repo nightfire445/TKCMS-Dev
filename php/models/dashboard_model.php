@@ -21,7 +21,7 @@ class Model
     public function loadVendors(){
     	$get_vendors = "SELECT * FROM `vendor`";
     	$this->vendors = $this->dbconn->query($get_vendors);
-        echo "<script>console.log(". var_export($this->vendors) .");</script>";
+        echo "<script>console.log(". var_dump($this->vendors) .");</script>";
     	return;
     }
 
@@ -37,7 +37,7 @@ class Model
 
             $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => isset($_POST["logo"]) ? $_POST["logo"] : null));
 
-            print $insert_vendor->errorCode();
+            echo $insert_vendor->errorCode();
 
             //images may or may not be included in adding the vendor.
             if(isset($_POST["images"])){
