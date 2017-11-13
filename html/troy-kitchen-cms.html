@@ -40,7 +40,7 @@
         <div id="active_vendors_container"> 
         <?php 
           foreach ($vendors as $vendor){
-            if($vendor[deployed] == 1 ){
+            if($vendor['deployed'] == 1 ){
 
               //$active_btn_container = "";
               //echo $active_btn_container;
@@ -57,7 +57,7 @@
         <div id="inactive_vendors_container"> 
         <?php 
           foreach ($vendors as $vendor){
-            if($vendor[deployed] == 0){
+            if($vendor['deployed'] == 0){
             
               //$inactive_btn_container = "";
               //echo $inactive_btn_container;
