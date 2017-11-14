@@ -143,6 +143,12 @@
   float: left;
 }
 
+.logo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
 @media screen and (min-width: 750px) {
   .vendors_container {
     width: 620px;
