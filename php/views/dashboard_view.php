@@ -14,6 +14,5 @@ class View
         require_once($this->model->template);
 
     }
-
 }
 ?>

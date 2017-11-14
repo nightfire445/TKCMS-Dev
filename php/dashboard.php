@@ -16,8 +16,20 @@
 		//edit_vendor
 
 	    //Activate Vendor
+	    if( isset($_POST["activate_vendor"]) ){
+			$controller->activateVendor($_POST["vendor_name"]);
+		}
 
 		//Deactivate Vendor
+		if( isset($_POST["deactivate_vendor"]) ){
+			$controller->deactivateVendor($_POST["vendor_name"]);
+		}
+
+		//delete_vendor
+		if( isset($_POST["delete_vendor"]) ){
+			$controller->delete_vendor($_POST["vendor_name"]);
+		}
+
 
 
 		echo "<meta http-equiv='refresh' content='0'>";

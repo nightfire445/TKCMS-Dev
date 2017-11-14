@@ -69,5 +69,21 @@ class Model
         return;
     }
 
+    public function deleteVendor($vendor_name){
+        $delete_vendor = $this->dbconn->prepare("DELETE FROM `vendor` WHERE `name` = :name");
+        $status = $delete_vendor->execute(array(":name" => $_POST["vendor_name"]));
+    }
+
+    public function activateVendor($vendor_name){
+        $activate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 1 WHERE `name` = :name");
+        $status = $activate_vendor->execute(array(":name" => $_POST["vendor_name"]));
+    }
+
+    public function deactivateVendor($vendor_name){
+        $deactivate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 0 WHERE `name` = :name");
+        $status = $deactivate_vendor->execute(array(":name" => $_POST["vendor_name"]));
+    }
+
+
 }
 ?>
