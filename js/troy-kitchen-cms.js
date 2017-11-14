@@ -52,5 +52,10 @@ function populateInfo(event, vendor_data) {
   $("#edit-vendor-name").val(name);
   var desc = vendor_data.description;
   $("#edit-description").val(desc);
+  var logo = vendor_data.logo;
+  if(logo != null) {
+    var insert_image = "<img src='" + logo + "' alt='" + name + "' class='logo'>";
+    $("#existing_logo").html(insert_image);
+  }
   $("#edit_vendor").modal();
 }
