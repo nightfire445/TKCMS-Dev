@@ -50,7 +50,7 @@ function populateInfo(event, vendor_data) {
   console.log(vendor_data);
   var name = vendor_data.name;
   $("#edit-vendor-name").val(name);
-  var desc = vendor_data.name;
+  var desc = vendor_data.description;
   $("#edit-description").val(desc);
   $("#edit_vendor").modal();
 }
