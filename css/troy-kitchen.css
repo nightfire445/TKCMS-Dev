@@ -14,11 +14,6 @@
 #stallList li{
     font-size: 20px;
     text-align: center;
-    border: solid;
-}
-
-#stallList li a{
-  color: black;
 }
 
 #stallList li a:hover {
@@ -129,3 +124,19 @@
   background: #444;
   text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 }
+
+.image{
+    position:relative;
+    overflow:hidden;
+    padding-bottom:100%;
+}
+.image img{
+      position: absolute;
+      max-width: 100%;
+      max-height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+}
+
+
