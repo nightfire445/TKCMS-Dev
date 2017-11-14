@@ -46,6 +46,7 @@ function updateLocation(event) {
   displayVendors(0, 2);
 }
 
-function populateInfo(event) {
+function populateInfo(event, vendor_data) {
+  console.log(vendor_data);
   $("#edit_vendor").modal();
 }
