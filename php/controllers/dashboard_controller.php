@@ -8,7 +8,7 @@
 	    }
 
 	    public function add_vendor(){
-	    	if(  isset($_POST["vendor_name"]) && isset($_POST["description"])  ){
+	    	if(  !empty($_POST["vendor_name"]) && !empty($_POST["description"])  ){
 				$this->model->storeVendor();
 			
 			}
