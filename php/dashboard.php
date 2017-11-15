@@ -13,8 +13,7 @@
 			$controller->add_vendor();
 		}
 		//TO DO:
-		//edit_vendor
-
+	
 	    //Activate Vendor
 	    if( isset($_POST["activate_vendor"]) ){
 			$controller->activate_vendor($_POST["vendor_name"]);
@@ -23,6 +22,11 @@
 		//Deactivate Vendor
 		if( isset($_POST["deactivate_vendor"]) ){
 			$controller->deactivate_vendor($_POST["vendor_name"]);
+		}
+
+		//edit_vendor
+		if(isset($_POST["edit_vendor"])){
+			$controller->edit_vendor();
 		}
 
 		//delete_vendor
