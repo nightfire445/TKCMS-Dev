@@ -26,7 +26,8 @@ class Model
     	return;
     }
 
-    public function uploadImage(){
+    public function uploadImage($image){
+
         
         return;
     }
@@ -40,11 +41,15 @@ class Model
             //logo may or may not be included but needs some value to store the vendor.
             $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_POST["logo"]) ? $_POST["logo"] : null) );
 
-             
+            if(!empty($_POST["logo"]){
+                $this->model->uploadImage($_FILES['logo']);
+            }
+
+
             //images may or may not be included in adding the vendor.
             if(!empty($_POST["images"])){
                 $image_urls = [];
-                foreach ($_POST["images"] as $value) {
+                foreach ($_FILES["images"] as $value) {
                     $image_url = $this->model->uploadImage($value);
                     $image_urls[] = $image_url;
                 }
@@ -59,7 +64,7 @@ class Model
 
             //menu may or may not be included in adding the vendor.
             if(!empty($_POST["menu"]) ){
-               $menu_url = $this->model->uploadImage($_POST["menu"]);
+               $menu_url = $this->model->uploadImage($_FILES["menu"]);
                $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
                 $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
             }
