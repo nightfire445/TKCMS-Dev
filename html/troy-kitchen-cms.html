@@ -71,7 +71,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form id="add_vendor" action="?" method="post">
+              <form id="add_vendor" enctype="multipart/form-data" action="?" method="post">
                 <div class="form-group">
                   <label for="vendor-name" class="form-control-label">Vendor Name:</label>
                   <input type="text" class="form-control" id="vendor-name" name="vendor_name">
@@ -86,7 +86,7 @@
                 </div>
                 <div class="form-group">
                   <label for="image" class="form-control-label">Upload Image(s)</label>
-                  <input type="file" id="images" name="images" multiple>
+                  <input type="file" id="images" name="images[]" multiple>
                 </div>
                 <div class="form-group">
                   <label for="menu" class="form-control-label">Upload Menu</label>
@@ -112,7 +112,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form id="edit_vendor" action="?" method="post">
+              <form id="edit_vendor" enctype="multipart/form-data" action="?" method="post">
                 <div class="form-group">
                   <label for="vendor-name" class="form-control-label">Vendor Name:</label>
                   <input type="text" class="form-control" id="edit-vendor-name" name="vendor_name">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="form-group">
                   <label for="image" class="form-control-label">Edit Image(s)</label>
-                  <input type="file" id="edit-images" name="images" multiple>
+                  <input type="file" id="edit-images" name="images[]" multiple>
                 </div>
                 <div class="form-group">
                   <label for="menu" class="form-control-label">Edit Menu</label>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="modal-footer">
                   <button id="delete_vendor" type="submit" class="btn btn-danger" name="delete_vendor">Delete Vendor</button>
-                  <button type="submit" class="btn btn-primary" name="save_changes">Save Changes</button>
+                  <button type="submit" class="btn btn-primary" name="edit_vendor">Save Changes</button>
                 </div>
               </form>
             </div>
