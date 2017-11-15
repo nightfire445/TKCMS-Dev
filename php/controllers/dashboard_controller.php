@@ -15,13 +15,14 @@
 
 	    }
 
+	    public function edit_vendor(){
+	    	
+	    }
+
 	    public function delete_vendor($vendor_name){
 	    	if( !empty($vendor_name) ){
 	    		$this->model->deleteVendor($vendor_name);
 	    	}
-
-
-
 	    }
 
 	    public function activate_vendor($vendor_name){
