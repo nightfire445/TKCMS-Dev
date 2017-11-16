@@ -1,4 +1,16 @@
 <?php
+
+function restructureFilesArray($files)
+{
+    $output = [];
+    foreach ($files as $attrName => $valuesArray) {
+        foreach ($valuesArray as $key => $value) {
+            $output[$key][$attrName] = $value;
+        }
+    }
+    return $output;
+}
+
 class Model
 {
     public $string; 
@@ -27,47 +39,54 @@ class Model
     }
 
     public function uploadImage($image){
-        return;
+        $uploads_dir = '/resources';
+        if ($image["error"] == UPLOAD_ERR_OK) {
+            $tmp_name = $image["tmp_name"];
+            // basename() may prevent filesystem traversal attacks;
+            // further validation/sanitation of the filename may be appropriate
+            $name = basename($image["name"]);
+            move_uploaded_file($tmp_name, "$uploads_dir/$name");
+            return $name;
+        }
     }
 
     public function storeVendor(){
-            //We need the vendor stored before storing images due to vendor_id foriegn key constraint
+        //We need the vendor stored before storing images due to vendor_id foriegn key constraint
+        $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed`, `logo` ) VALUES (:name, :description, :location, :deployed, :logo) ");
 
+        //logo may or may not be included but needs some value to store the vendor.
+        $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_POST["logo"]) ? $_POST["logo"] : null) );
 
-            $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed`, `logo` ) VALUES (:name, :description, :location, :deployed, :logo) ");
+        //logo may or may not be included in adding the vendor.
+        if(!empty($_FILES["logo"])){
+            $logo_url = $this->model->uploadImage($_FILES["logo"]);
+        }
 
-            //logo may or may not be included but needs some value to store the vendor.
-            $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_POST["logo"]) ? $_POST["logo"] : null) );
-
-            if(!empty($_FILES["logo"]["name"])){
-                $logo_url = $this->model->uploadImage($_FILES["logo"]);
-            }
-
-            //images may or may not be included in adding the vendor.
-            if(!empty($_FILES["images"])){
-                $image_urls = [];
-
-                foreach ($_POST["images"] as $image) {
-                    $image_url = $this->model->uploadImage($value);
-                    $image_urls[] = $image_url;
-                }
-
-                foreach ($image_urls as $value) {
-                    $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-                    $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
-                }
+        //images may or may not be included in adding the vendor.
+        if(!empty($_FILES["images"])){
+            $image_urls = [];
             
-
+            //ensure the format of the array is what uploadImage expects
+            $images = restructureFilesArray($_FILES["images"]);
+            foreach ($images as $image) {
+                $image_url = $this->model->uploadImage($image);
+                $image_urls[] = $image_url;
             }
 
-            //menu may or may not be included in adding the vendor.
-            if(!empty($_POST["menu"]) ){
-               $menu_url = $this->model->uploadImage($_FILES["menu"]);
-               $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+            foreach ($image_urls as $value) {
+                $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
                 $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
             }
+        
 
+        }
 
+        //menu may or may not be included in adding the vendor.
+        if(!empty($_FILES["menu"]) ){
+            $menu_url = $this->model->uploadImage($_FILES["menu"]);
+            $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+            $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
+        }
 
         return;
     }
