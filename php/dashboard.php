@@ -9,19 +9,9 @@
 	$view->output();
 
 	if(!empty($_POST)){
+		//add_vendor
 		if(isset($_POST["add_vendor"])){
 			$controller->add_vendor();
-		}
-		//TO DO:
-	
-	    //Activate Vendor
-	    if( isset($_POST["activate_vendor"]) ){
-			$controller->activate_vendor($_POST["vendor_name"]);
-		}
-
-		//Deactivate Vendor
-		if( isset($_POST["deactivate_vendor"]) ){
-			$controller->deactivate_vendor($_POST["vendor_name"]);
 		}
 
 		//edit_vendor
@@ -34,6 +24,15 @@
 			$controller->delete_vendor($_POST["vendor_name"]);
 		}
 
+		//Activate Vendor
+	    if( isset($_POST["activate_vendor"]) ){
+			$controller->activate_vendor($_POST["vendor_name"]);
+		}
+
+		//Deactivate Vendor
+		if( isset($_POST["deactivate_vendor"]) ){
+			$controller->deactivate_vendor($_POST["vendor_name"]);
+		}
 
 
 		echo "<meta http-equiv='refresh' content='0'>";

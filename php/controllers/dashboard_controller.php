@@ -16,7 +16,7 @@
 	    }
 
 	    public function edit_vendor(){
-	    	
+			return;
 	    }
 
 	    public function delete_vendor($vendor_name){
