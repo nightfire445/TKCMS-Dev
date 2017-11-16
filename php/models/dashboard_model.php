@@ -40,7 +40,7 @@ class Model
             $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_POST["logo"]) ? $_POST["logo"] : null) );
 
             if(!empty($_FILES["logo"]["name"]){
-                $logo_url = $this->model->uploadImage($_FILES["logo"])
+                $logo_url = $this->model->uploadImage($_FILES["logo"]);
             }
 
 
