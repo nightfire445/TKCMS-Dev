@@ -14,6 +14,9 @@
 		}
 		//TO DO:
 		//edit_vendor
+		if(isset($_POST["edit_vendor"])){
+			$controller->edit_vendor();
+		}
 
 	    //Activate Vendor
 	    if( isset($_POST["activate_vendor"]) ){
