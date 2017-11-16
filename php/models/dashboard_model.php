@@ -39,7 +39,7 @@ class Model
             //logo may or may not be included but needs some value to store the vendor.
             $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_POST["logo"]) ? $_POST["logo"] : null) );
 
-            if(!empty($_FILES["logo"]["name"]){
+            if(!empty($_FILES["logo"]["name"])){
                 $logo_url = $this->model->uploadImage($_FILES["logo"]);
             }
 
