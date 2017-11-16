@@ -6,7 +6,7 @@ class Model
     private $dbconn;
 
     public function __construct(){
-        require_once dirname(__FILE__). "/../connect.php";
+        require_once dirname(__FILE__). "/../db/connect.php";
         
         $this->string = "";
         $this->dbconn = $dbconn;
@@ -26,8 +26,7 @@ class Model
     	return;
     }
 
-    public function uploadImage(){
-        
+    public function uploadImage($file){
         return;
     }
 
@@ -40,11 +39,17 @@ class Model
             //logo may or may not be included but needs some value to store the vendor.
             $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_POST["logo"]) ? $_POST["logo"] : null) );
 
+            if(!empty($_FILES["logo"]["name"]){
+                $logo_url = $this->model->uploadImage($_FILES["logo"])
+            }
+
+
              
             //images may or may not be included in adding the vendor.
-            if(!empty($_POST["images"])){
+            if(!empty($_FILES["images"])){
                 $image_urls = [];
-                foreach ($_POST["images"] as $value) {
+
+                foreach ($_POST["images"] as $image) {
                     $image_url = $this->model->uploadImage($value);
                     $image_urls[] = $image_url;
                 }
