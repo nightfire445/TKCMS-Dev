@@ -42,12 +42,12 @@ class Model
         echo "<script>console.log(".json_encode($image).");</script>";
         $uploads_dir = '/resources';
         if ($image["error"] == UPLOAD_ERR_OK) {
-            echo "<script>console.log('no errors');</script>";
             $tmp_name = $image["tmp_name"];
             // basename() may prevent filesystem traversal attacks;
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
-            move_uploaded_file($tmp_name, "$uploads_dir/$name");
+            $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
+            echo "<script>console.log(". $status ? "file uploaded" : "file not uploaded" .");</script>";
             return $name;
         }
     }
@@ -86,7 +86,7 @@ class Model
         //menu may or may not be included in adding the vendor.
         if(!empty($_FILES["menu"]) ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
-            echo "<script>console.log(menu_url:". $menu_url .");</script>";
+            echo "<script>console.log('menu_url:". $menu_url ."');</script>";
             $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
         }
