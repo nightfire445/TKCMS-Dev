@@ -35,7 +35,7 @@
 		}
 
 		//refresh the page to reflect action after posting
-		echo "<meta http-equiv='refresh' content='0'>";
+		$view->output();
 
 
 
