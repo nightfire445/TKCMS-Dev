@@ -39,7 +39,7 @@ class Model
     }
 
     public function uploadImage($image){
-        $uploads_dir = '/resources';
+        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] .'/resources';
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
             // basename() may prevent filesystem traversal attacks;
@@ -87,7 +87,7 @@ class Model
             $menu_url = $this->uploadImage($_FILES["menu"]);
             echo "<script>console.log('menu_url:". $menu_url ."');</script>\n";
             $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-            $insert_menu->execute(array(':name' => $_POST["vendor_name"]));
+            $status = $insert_menu->execute(array(':name' => $_POST["vendor_name"]));
         }
 
         return;
