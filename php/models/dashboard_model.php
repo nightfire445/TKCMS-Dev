@@ -47,7 +47,7 @@ class Model
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
-            echo "<script>console.log(". $status ? "file uploaded" : "file not uploaded" .");</script>\n";
+            echo "<script>console.log('". $status ? "file uploaded" : "file not uploaded" ."');</script>\n";
             return $name;
         }
     }
