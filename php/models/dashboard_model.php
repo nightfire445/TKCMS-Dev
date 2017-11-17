@@ -39,7 +39,6 @@ class Model
     }
 
     public function uploadImage($image){
-        echo "<script>console.log(".json_encode($image).");</script>\n";
         $uploads_dir = '/resources';
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
@@ -47,7 +46,7 @@ class Model
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
-            echo "<script>console.log('". $status ? "file uploaded" : "file not uploaded" ."');</script>\n";
+            echo "<script>console.log('status:". $status."');</script>\n";
             return $name;
         }
     }
