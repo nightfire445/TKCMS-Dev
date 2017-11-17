@@ -10,27 +10,27 @@
 	if(!empty($_POST)){
 		//add_vendor
 		if(isset($_POST["add_vendor"])){
-			$msg = $controller->add_vendor();
+			$controller->add_vendor();
 		}
 
 		//edit_vendor
 		if(isset($_POST["edit_vendor"])){
-			$msg = $controller->edit_vendor();
+			$controller->edit_vendor();
 		}
 
 		//delete_vendor
 		if( isset($_POST["delete_vendor"]) ){
-			$msg = $controller->delete_vendor($_POST["vendor_name"]);
+			$controller->delete_vendor($_POST["vendor_name"]);
 		}
 
 		//Activate Vendor
 	    if( isset($_POST["activate_vendor"]) ){
-			$msg = $controller->activate_vendor($_POST["vendor_name"]);
+			$controller->activate_vendor($_POST["vendor_name"]);
 		}
 
 		//Deactivate Vendor
 		if( isset($_POST["deactivate_vendor"]) ){
-			$msg = $controller->deactivate_vendor($_POST["vendor_name"]);
+			$controller->deactivate_vendor($_POST["vendor_name"]);
 		}
 
 		//refresh the page to reflect action after posting
