@@ -35,7 +35,7 @@ class Model
         $get_vendors = $this->dbconn->query($get_vendors_query);
     	$this->vendors = $get_vendors->fetchAll();
 
-    	return;
+    	return $this->vendors;
     }
 
     public function uploadImage($image){
