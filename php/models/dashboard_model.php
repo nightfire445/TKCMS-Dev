@@ -57,8 +57,7 @@ class Model
 
         //logo may or may not be included but needs some value to store the vendor.
         $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_FILES["logo"]) ? $_FILES["logo"]["name"] : null) );
-        var_dump($_FILES);
-        throw new Exception("Error Processing Request", 1);
+        echo "<script>console.log(".json_encode($_FILES["logo"]). " : ". !empty($_FILES["logo"]) ." );</script>";
         
         //logo may or may not be included in adding the vendor.
         if(!empty($_FILES["logo"])){
