@@ -6,7 +6,6 @@
 	$model->loadTemplateFile(dirname(__FILE__). "/../html/troy-kitchen-cms.html");
 	$controller = new Controller($model);
 	$view = new View($controller, $model);
-	$view->output();
 
 	if(!empty($_POST)){
 		//add_vendor
@@ -35,9 +34,9 @@
 		}
 
 		//refresh the page to reflect action after posting
-		$view->output();
 
 
 
 	}
+	$view->output();
 ?>

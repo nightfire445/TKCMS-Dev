@@ -10,6 +10,7 @@ class View
     }
 	
     public function output(){
+        $this->model->loadVendors();
         $vendors= $this->model->vendors;
         require_once($this->model->template);
 
