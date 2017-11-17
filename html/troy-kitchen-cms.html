@@ -52,7 +52,7 @@
         <?php 
           foreach ($vendors as $vendor){
             if($vendor['deployed'] == 0){
-              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='".json_encode($hidden_vendor_value)."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='activate_vendor' class='btn btn-success btn-xs'>Activate</button></div></form></div>";
+              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='".json_encode($vendor['name'])."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='activate_vendor' class='btn btn-success btn-xs'>Activate</button></div></form></div>";
               echo $inactive_vendor;
             }
           } 
