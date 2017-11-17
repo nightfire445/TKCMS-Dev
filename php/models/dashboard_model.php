@@ -79,7 +79,7 @@ class Model
                 $status = $insert_image->execute(array(':name' => $_POST["vendor_name"]));
             }
         
-
+            echo "<script>console.log('images status:". $status ."');</script>\n";
         }
 
         //menu may or may not be included in adding the vendor.
@@ -90,6 +90,7 @@ class Model
             $status = $insert_menu->execute(array(':name' => $_POST["vendor_name"]));
         }
 
+        echo "<script>console.log('done with function');</script>";
         return;
     }
 
