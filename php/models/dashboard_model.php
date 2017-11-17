@@ -57,11 +57,9 @@ class Model
 
         //logo may or may not be included but needs some value to store the vendor.
         $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_FILES["logo"]) ? $_FILES["logo"]["name"] : null) );
-        echo "<script>console.log(". json_encode($_FILES["logo"]) .");</script>";
-        echo "<script>console.log(". !empty($_FILES["logo"]) . ");</script>";
         //logo may or may not be included in adding the vendor.
         if(!empty($_FILES["logo"])){
-            $logo_url = $this->model->uploadImage($_FILES["logo"]);
+            $logo_url = $this->uploadImage($_FILES["logo"]);
         }
 
         //images may or may not be included in adding the vendor.
@@ -71,7 +69,7 @@ class Model
             //ensure the format of the array is what uploadImage expects
             $images = restructureFilesArray($_FILES["images"]);
             foreach ($images as $image) {
-                $image_url = $this->model->uploadImage($image);
+                $image_url = $this->uploadImage($image);
                 $image_urls[] = $image_url;
             }
 
@@ -85,7 +83,7 @@ class Model
 
         //menu may or may not be included in adding the vendor.
         if(!empty($_FILES["menu"]) ){
-            $menu_url = $this->model->uploadImage($_FILES["menu"]);
+            $menu_url = $this->uploadImage($_FILES["menu"]);
             $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
         }
