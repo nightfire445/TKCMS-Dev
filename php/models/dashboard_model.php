@@ -46,7 +46,7 @@ class Model
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
-            echo "<script>console.log('status:". $status."');</script>\n";
+            echo "<script>console.log('status:". $status == TRUE."');</script>\n";
             return $name;
         }
     }
@@ -60,7 +60,7 @@ class Model
         //logo may or may not be included in adding the vendor.
         if(!empty($_FILES["logo"])){
             $logo_url = $this->uploadImage($_FILES["logo"]);
-            echo "<script>console.log('logo_url:'".$logo_url.");</script>\n";
+            echo "<script>console.log('logo_url:".$logo_url."');</script>\n";
         }
 
         //images may or may not be included in adding the vendor.
