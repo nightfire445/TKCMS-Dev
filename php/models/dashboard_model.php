@@ -39,6 +39,7 @@ class Model
     }
 
     public function uploadImage($image){
+        echo "<script>console.log(".json_encode($image).");</script>";
         $uploads_dir = '/resources';
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
