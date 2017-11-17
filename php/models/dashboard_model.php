@@ -60,7 +60,6 @@ class Model
         //logo may or may not be included in adding the vendor.
         if(!empty($_FILES["logo"])){
             $logo_url = $this->uploadImage($_FILES["logo"]);
-            echo "<script>console.log('logo_url:".$logo_url."');</script>\n";
         }
 
         //images may or may not be included in adding the vendor.
@@ -69,15 +68,15 @@ class Model
 
             //ensure the format of the array is what uploadImage expects
             $images = restructureFilesArray($_FILES["images"]);
-            echo "<script>console.log(". json_encode($images) .");</script>";
             foreach ($images as $image) {
                 $image_url = $this->uploadImage($image);
                 $image_urls[] = $image_url;
             }
             echo "<script>console.log(". json_encode($image_urls) .");</script>\n";
             foreach ($image_urls as $value) {
-                $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-                $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
+                
+                $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+                $status = $insert_image->execute(array(':name' => $_POST["vendor_name"]));
             }
         
 
@@ -87,8 +86,8 @@ class Model
         if(!empty($_FILES["menu"]) ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
             echo "<script>console.log('menu_url:". $menu_url ."');</script>\n";
-            $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-            $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
+            $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+            $insert_menu->execute(array(':name' => $_POST["vendor_name"]));
         }
 
         return;
