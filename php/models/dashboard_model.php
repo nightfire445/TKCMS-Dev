@@ -53,7 +53,7 @@ class Model
 
     public function storeVendor(){
         $vendor_name = htmlentities($_POST["vendor_name"]);
-        $vendor_description = htmlentities($_POST["description"];
+        $vendor_description = htmlentities($_POST["description"]);
 
 
         //We need the vendor stored before storing images due to vendor_id foriegn key constraint
