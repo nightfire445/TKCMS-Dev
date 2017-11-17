@@ -42,6 +42,7 @@ class Model
         echo "<script>console.log(".json_encode($image).");</script>";
         $uploads_dir = '/resources';
         if ($image["error"] == UPLOAD_ERR_OK) {
+            echo "<script>console.log('no errors');</script>";
             $tmp_name = $image["tmp_name"];
             // basename() may prevent filesystem traversal attacks;
             // further validation/sanitation of the filename may be appropriate
@@ -60,6 +61,7 @@ class Model
         //logo may or may not be included in adding the vendor.
         if(!empty($_FILES["logo"])){
             $logo_url = $this->uploadImage($_FILES["logo"]);
+            echo "<script>console.log('logo_url:'".$logo_url.");</script>";
         }
 
         //images may or may not be included in adding the vendor.
@@ -72,7 +74,7 @@ class Model
                 $image_url = $this->uploadImage($image);
                 $image_urls[] = $image_url;
             }
-
+            echo "<script>console.log(". json_encode($image_urls) .");</script>";
             foreach ($image_urls as $value) {
                 $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
                 $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
@@ -84,6 +86,7 @@ class Model
         //menu may or may not be included in adding the vendor.
         if(!empty($_FILES["menu"]) ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
+            echo "<script>console.log(menu_url:". $menu_url .");</script>";
             $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
         }
