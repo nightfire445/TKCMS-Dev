@@ -39,7 +39,7 @@ class Model
     }
 
     public function uploadImage($image){
-        echo "<script>console.log(".json_encode($image).");</script>";
+        echo "<script>console.log(".json_encode($image).");</script>\n";
         $uploads_dir = '/resources';
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
@@ -47,7 +47,7 @@ class Model
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
-            echo "<script>console.log(". $status ? "file uploaded" : "file not uploaded" .");</script>";
+            echo "<script>console.log(". $status ? "file uploaded" : "file not uploaded" .");</script>\n";
             return $name;
         }
     }
@@ -61,7 +61,7 @@ class Model
         //logo may or may not be included in adding the vendor.
         if(!empty($_FILES["logo"])){
             $logo_url = $this->uploadImage($_FILES["logo"]);
-            echo "<script>console.log('logo_url:'".$logo_url.");</script>";
+            echo "<script>console.log('logo_url:'".$logo_url.");</script>\n";
         }
 
         //images may or may not be included in adding the vendor.
@@ -74,7 +74,7 @@ class Model
                 $image_url = $this->uploadImage($image);
                 $image_urls[] = $image_url;
             }
-            echo "<script>console.log(". json_encode($image_urls) .");</script>";
+            echo "<script>console.log(". json_encode($image_urls) .");</script>\n";
             foreach ($image_urls as $value) {
                 $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
                 $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
@@ -86,7 +86,7 @@ class Model
         //menu may or may not be included in adding the vendor.
         if(!empty($_FILES["menu"]) ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
-            echo "<script>console.log('menu_url:". $menu_url ."');</script>";
+            echo "<script>console.log('menu_url:". $menu_url ."');</script>\n";
             $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $this->dbconn->execute(array(':name' => $_POST["vendor_name"]));
         }
