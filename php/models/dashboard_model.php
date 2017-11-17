@@ -52,11 +52,15 @@ class Model
     }
 
     public function storeVendor(){
+        $vendor_name = htmlentities($_POST["vendor_name"]);
+        $vendor_description = htmlentities($_POST["description"];
+
+
         //We need the vendor stored before storing images due to vendor_id foriegn key constraint
         $insert_vendor = $this->dbconn->prepare("INSERT INTO `vendor` (`name`, `description`, `location`, `deployed`, `logo` ) VALUES (:name, :description, :location, :deployed, :logo) ");
 
         //logo may or may not be included but needs some value to store the vendor.
-        $status = $insert_vendor->execute(array(':name' => $_POST["vendor_name"], ':description' => $_POST["description"], ':location' => 0, ':deployed' => 0, ':logo' => !empty($_FILES["logo"]) ? $_FILES["logo"]["name"] : null) );
+        $status = $insert_vendor->execute(array(':name' => $vendor_name, ':description' => $vendor_description, ':location' => 0, ':deployed' => 0, ':logo' => !empty($_FILES["logo"]) ? htmlentities($_FILES["logo"]["name"]) : null) );
         //logo may or may not be included in adding the vendor.
         if(!empty($_FILES["logo"])){
             $logo_url = $this->uploadImage($_FILES["logo"]);
@@ -76,7 +80,7 @@ class Model
             foreach ($image_urls as $value) {
                 
                 $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-                $status = $insert_image->execute(array(':name' => $_POST["vendor_name"]));
+                $status = $insert_image->execute(array(':name' => $vendor_name));
             }
         
             echo "<script>console.log('images status:". $status ."');</script>\n";
@@ -87,7 +91,7 @@ class Model
             $menu_url = $this->uploadImage($_FILES["menu"]);
             echo "<script>console.log('menu_url:". $menu_url ."');</script>\n";
             $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-            $status = $insert_menu->execute(array(':name' => $_POST["vendor_name"]));
+            $status = $insert_menu->execute(array(':name' => $vendor_name));
         }
 
         echo "<script>console.log('done with function');</script>";
@@ -96,17 +100,17 @@ class Model
 
     public function deleteVendor($vendor_name){
         $delete_vendor = $this->dbconn->prepare("DELETE FROM `vendor` WHERE `name` = :name");
-        $status = $delete_vendor->execute(array(":name" => $_POST["vendor_name"]));
+        $status = $delete_vendor->execute( array(  ":name" => htmlentities($_POST["vendor_name"])  ) );
     }
 
     public function activateVendor($vendor_name){
         $activate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 1 WHERE `name` = :name");
-        $status = $activate_vendor->execute(array(":name" => $_POST["vendor_name"]));
+        $status = $activate_vendor->execute( array(  ":name" => htmlentities($_POST["vendor_name"]) )  );
     }
 
     public function deactivateVendor($vendor_name){
         $deactivate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 0 WHERE `name` = :name");
-        $status = $deactivate_vendor->execute(array(":name" => $_POST["vendor_name"]));
+        $status = $deactivate_vendor->execute( array(  ":name" => htmlentities($_POST["vendor_name"]) )  );
     }
 
 
