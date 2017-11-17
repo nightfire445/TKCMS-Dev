@@ -46,7 +46,7 @@ class Model
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
-            echo "<script>console.log('status:". $status == TRUE."');</script>\n";
+            echo "<script>console.log('status:". $status==TRUE."');</script>\n";
             return $name;
         }
     }
@@ -69,6 +69,7 @@ class Model
 
             //ensure the format of the array is what uploadImage expects
             $images = restructureFilesArray($_FILES["images"]);
+            echo "<script>console.log(". json_encode($images) .");</script>";
             foreach ($images as $image) {
                 $image_url = $this->uploadImage($image);
                 $image_urls[] = $image_url;
