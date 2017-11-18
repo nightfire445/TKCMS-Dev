@@ -39,7 +39,7 @@ class Model
     }
 
     public function uploadImage($image){
-        $uploads_dir = __DIR__ .'../../resources';
+        $uploads_dir = $SERVER["DOCUMENT_ROOT"] .'/resources';
         echo "<script>console.log('".$uploads_dir."');</script>";
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
@@ -52,6 +52,7 @@ class Model
             echo "<script>console.log('status:". $status==TRUE."');</script>\n";
             return $name;
         }
+        echo "<script>console.log('upload image error: ".$image["error"]."');</script>";
     }
 
     public function storeVendor(){
