@@ -39,7 +39,7 @@ class Model
     }
 
     public function uploadImage($image){
-        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] .'/resources';
+        $uploads_dir = __DIR__ .'../../resources';
         echo "<script>console.log('".$uploads_dir."');</script>";
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
@@ -48,6 +48,7 @@ class Model
             $name = basename($image["name"]);
             echo "<script>console.log('".$name."');</script>";
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
+            assert($status);
             echo "<script>console.log('status:". $status==TRUE."');</script>\n";
             return $name;
         }
