@@ -40,13 +40,13 @@ class Model
 
     public function uploadImage($image){
         $uploads_dir = $_SERVER['DOCUMENT_ROOT'] .'/resources';
-        echo "<script>console.log(".$uploads_dir.");</script>";
+        echo "<script>console.log('".$uploads_dir."'');</script>";
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
             // basename() may prevent filesystem traversal attacks;
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
-            echo "<script>console.log(".$name.");</script>";
+            echo "<script>console.log('".$name."'');</script>";
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
             echo "<script>console.log('status:". $status==TRUE."');</script>\n";
             return $name;
