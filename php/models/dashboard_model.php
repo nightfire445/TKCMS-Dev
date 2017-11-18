@@ -88,7 +88,7 @@ class Model
         }
 
         //menu may or may not be included in adding the vendor.
-        if($_FILES['images']['menu']==0 ){
+        if($_FILES['menu']['error']==0 ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
             $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $status = $insert_menu->execute(array(':name' => $vendor_name, ':menu_url' => $menu_url));
