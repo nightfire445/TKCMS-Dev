@@ -41,7 +41,7 @@ class Model
     public function uploadImage($image){
 
     try{
-        $uploads_dir = $SERVER["DOCUMENT_ROOT"] .'/resources';
+        $uploads_dir = $_SERVER["DOCUMENT_ROOT"] .'/resources';
         echo "<script>console.log('".$uploads_dir."');</script>";
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
