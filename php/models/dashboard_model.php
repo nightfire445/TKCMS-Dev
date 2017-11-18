@@ -53,7 +53,6 @@ class Model
     }
 
     public function storeVendor(){
-    try {
         
         $vendor_name = htmlspecialchars($_POST["vendor_name"], ENT_QUOTES);
         $vendor_description = htmlspecialchars($_POST["description"], ENT_QUOTES);
@@ -65,12 +64,12 @@ class Model
         //logo may or may not be included but needs some value to store the vendor.
         $status = $insert_vendor->execute(array(':name' => $vendor_name, ':description' => $vendor_description, ':location' => 0, ':deployed' => 0, ':logo' => !empty($_FILES["logo"]) ? htmlspecialchars($_FILES["logo"]["name"], ENT_QUOTES) : null) );
         //logo may or may not be included in adding the vendor.
-        if(!empty($_FILES["logo"])){
+        if($_FILES['logo']['error']==0){
             $logo_url = $this->uploadImage($_FILES["logo"]);
         }
 
         //images may or may not be included in adding the vendor.
-        if(!empty($_FILES["images"])){
+        if($_FILES['images']['error']==0){
             $image_urls = [];
 
             //ensure the format of the array is what uploadImage expects
@@ -88,15 +87,11 @@ class Model
         }
 
         //menu may or may not be included in adding the vendor.
-        if(!empty($_FILES["menu"]) ){
+        if($_FILES['images']['menu']==0 ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
             $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $status = $insert_menu->execute(array(':name' => $vendor_name, ':menu_url' => $menu_url));
         }
-
-    } catch (Exception $e) {
-        echo $e;
-    }
         return;
     }
 
