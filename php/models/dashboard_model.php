@@ -53,6 +53,8 @@ class Model
     }
 
     public function storeVendor(){
+    try {
+        
         $vendor_name = htmlspecialchars($_POST["vendor_name"], ENT_QUOTES);
         $vendor_description = htmlspecialchars($_POST["description"], ENT_QUOTES);
 
@@ -91,6 +93,10 @@ class Model
             $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $status = $insert_menu->execute(array(':name' => $vendor_name, ':menu_url' => $menu_url));
         }
+
+    } catch (Exception $e) {
+        echo $e;
+    }
         return;
     }
 
