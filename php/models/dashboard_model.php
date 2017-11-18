@@ -57,7 +57,7 @@ class Model
         echo "<script>console.log('upload image error: ".$image["error"]."');</script>";
     }
     catch(Exception $e){
-        echo $e;
+        var_export($e);
         die();
     }
     }
