@@ -22,17 +22,17 @@ error_reporting(E_ALL);
 
 		//delete_vendor
 		if( isset($_POST["delete_vendor"]) ){
-			$controller->delete_vendor($_POST["vendor_name"]);
+			$controller->delete_vendor();
 		}
 
 		//Activate Vendor
 	    if( isset($_POST["activate_vendor"]) ){
-			$controller->activate_vendor($_POST["vendor_name"]);
+			$controller->activate_vendor();
 		}
 
 		//Deactivate Vendor
 		if( isset($_POST["deactivate_vendor"]) ){
-			$controller->deactivate_vendor($_POST["vendor_name"]);
+			$controller->deactivate_vendor();
 		}
 
 		//refresh the page to reflect action after posting

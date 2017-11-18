@@ -100,9 +100,17 @@ class Model
         return;
     }
 
-    public function deleteVendor($vendor_name){
+    public function deleteVendor(){
+        $vendor_name = htmlspecialchars($_POST["vendor_name"], ENT_QUOTES);
+
+        //images and menu must be delete before the vendor due to FK constraints
+        $delete_images = $this->dbconn->prepare("DELETE FROM `image` WHERE `vendor_FK` = (SELECT `vendor_id` FROM `vendor` WHERE name =:name)")
+        $status = $delete_images->execute(array(":name" => $vendor_name));
+        $delete_menu = $this->dbconn->prepare("DELETE FROM `menu` WHERE `vendor_FK` = (SELECT `vendor_id` FROM `vendor` WHERE name =:name)")
+        $status = $delete_menu->execute(array(":name" => $vendor_name));
+
         $delete_vendor = $this->dbconn->prepare("DELETE FROM `vendor` WHERE `name` = :name");
-        $status = $delete_vendor->execute( array(  ":name" => htmlspecialchars($_POST["vendor_name"], ENT_QUOTES)  ) );
+        $status = $delete_vendor->execute( array(  ":name" => $vendor_name  ) );
     }
 
     public function activateVendor($vendor_name){
