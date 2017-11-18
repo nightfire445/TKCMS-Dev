@@ -88,10 +88,10 @@ class Model
                 $image_urls[] = $image_url;
             }
             echo "<script>console.log(". json_encode($image_urls) .");</script>\n";
-            foreach ($image_urls as $value) {
+            foreach ($image_urls as $image_url) {
                 
-                $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (".$value. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-                $status = $insert_image->execute(array(':name' => $vendor_name));
+                $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+                $status = $insert_image->execute(array(':name' => $vendor_name, ':image_url' => $image_url));
             }
         
             echo "<script>console.log('images status:". $status ."');</script>\n";
@@ -101,8 +101,8 @@ class Model
         if(!empty($_FILES["menu"]) ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
             echo "<script>console.log('menu_url:". $menu_url ."');</script>\n";
-            $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (".$menu_url. ", (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-            $status = $insert_menu->execute(array(':name' => $vendor_name));
+            $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+            $status = $insert_menu->execute(array(':name' => $vendor_name, ':menu_url' => $menu_url));
         }
 
         echo "<script>console.log('done with function');</script>";
