@@ -39,9 +39,12 @@
         <div class="type_label">Active Vendors:</div>
         <div id="active_vendors_container"> 
         <?php 
+
           foreach ($vendors as $vendor){
+            $vendor_name = strtr($vendor['name'], array('\\' => '\\\\', "'" => "\\'", '"' => '\\"', 
+                                 "\r" => '\\r', "\n" => '\\n' ));
             if($vendor['deployed'] == 1 ){
-              $active_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='". json_encode($vendor['name']) ."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='deactivate_vendor' class='btn btn-danger btn-xs'>Deactivate</button></div></form></div>";
+              $active_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor_name . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='". $vendor_name ."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='deactivate_vendor' class='btn btn-danger btn-xs'>Deactivate</button></div></form></div>";
               echo $active_vendor;
             }
           } 
@@ -50,9 +53,11 @@
         <div class="type_label">Inactive Vendors:</div>
         <div id="inactive_vendors_container"> 
         <?php 
+         $vendor_name = strtr($vendor['name'], array('\\' => '\\\\', "'" => "\\'", '"' => '\\"', 
+                                 "\r" => '\\r', "\n" => '\\n' ));
           foreach ($vendors as $vendor){
             if($vendor['deployed'] == 0){
-              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='".json_encode($vendor['name'])."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='activate_vendor' class='btn btn-success btn-xs'>Activate</button></div></form></div>";
+              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor_name . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='".$vendor_name."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='activate_vendor' class='btn btn-success btn-xs'>Activate</button></div></form></div>";
               echo $inactive_vendor;
             }
           } 
