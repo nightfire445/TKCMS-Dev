@@ -40,26 +40,16 @@ class Model
 
     public function uploadImage($image){
 
-    try{
         $uploads_dir = $_SERVER["DOCUMENT_ROOT"] .'/resources';
-        echo "<script>console.log('".$uploads_dir."');</script>";
         if ($image["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $image["tmp_name"];
             // basename() may prevent filesystem traversal attacks;
             // further validation/sanitation of the filename may be appropriate
             $name = basename($image["name"]);
-            echo "<script>console.log('".$name."');</script>";
             $status = move_uploaded_file($tmp_name, "$uploads_dir/$name");
-            assert($status);
-            echo "<script>console.log('status:". $status==TRUE."');</script>\n";
             return $name;
         }
-        echo "<script>console.log('upload image error: ".$image["error"]."');</script>";
-    }
-    catch(Exception $e){
-        var_export($e);
-        die();
-    }
+
     }
 
     public function storeVendor(){
@@ -87,25 +77,20 @@ class Model
                 $image_url = $this->uploadImage($image);
                 $image_urls[] = $image_url;
             }
-            echo "<script>console.log(". json_encode($image_urls) .");</script>\n";
             foreach ($image_urls as $image_url) {
                 
                 $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
                 $status = $insert_image->execute(array(':name' => $vendor_name, ':image_url' => $image_url));
             }
         
-            echo "<script>console.log('images status:". $status ."');</script>\n";
         }
 
         //menu may or may not be included in adding the vendor.
         if(!empty($_FILES["menu"]) ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
-            echo "<script>console.log('menu_url:". $menu_url ."');</script>\n";
             $insert_menu = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
             $status = $insert_menu->execute(array(':name' => $vendor_name, ':menu_url' => $menu_url));
         }
-
-        echo "<script>console.log('done with function');</script>";
         return;
     }
 
