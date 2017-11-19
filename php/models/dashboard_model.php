@@ -53,7 +53,6 @@ class Model
     }
 
     public function storeVendor(){
-    try {
         
         $vendor_name = htmlspecialchars($_POST["vendor_name"], ENT_QUOTES);
         $vendor_description = htmlspecialchars($_POST["description"], ENT_QUOTES);
@@ -96,9 +95,6 @@ class Model
             $status = $insert_menu->execute(array(':name' => $vendor_name, ':menu_url' => $menu_url));
         }
 
-    } catch (Exception $e) {
-        echo $e;
-    }
         return;
     }
 
