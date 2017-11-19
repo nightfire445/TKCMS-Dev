@@ -69,23 +69,25 @@ class Model
             $logo_url = $this->uploadImage($_FILES["logo"]);
         }
 
-        //images may or may not be included in adding the vendor.
-        if($_FILES['images']['error']==0){
-            $image_urls = [];
 
-            //ensure the format of the array is what uploadImage expects
-            $images = restructureFilesArray($_FILES["images"]);
-            foreach ($images as $image) {
+        $image_urls = [];
+
+        //ensure the format of the array is what uploadImage expects
+        $images = restructureFilesArray($_FILES["images"]);
+        foreach ($images as $image) {
+            //images may or may not be included in adding the vendor.
+            if($image["error"] == 0){
                 $image_url = $this->uploadImage($image);
                 $image_urls[] = $image_url;
             }
-            foreach ($image_urls as $image_url) {
-                
-                $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
-                $status = $insert_image->execute(array(':name' => $vendor_name, ':image_url' => $image_url));
-            }
-        
+            
         }
+        foreach ($image_urls as $image_url) {
+            
+            $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE name = :name) )");
+            $status = $insert_image->execute(array(':name' => $vendor_name, ':image_url' => $image_url));
+        }
+        
 
         //menu may or may not be included in adding the vendor.
         if($_FILES['menu']['error']==0 ){
