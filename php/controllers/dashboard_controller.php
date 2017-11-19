@@ -19,21 +19,21 @@
 			return;
 	    }
 
-	    public function delete_vendor($vendor_name){
-	    	if( !empty($vendor_name) ){
-	    		$this->model->deleteVendor($vendor_name);
+	    public function delete_vendor(){
+	    	if( !empty($_POST["vendor_name"])) ){
+	    		$this->model->deleteVendor();
 	    	}
 	    }
 
-	    public function activate_vendor($vendor_name){
-	    	if ( !empty($vendor_name) ) {
-	    		$this->model->activateVendor($vendor_name);
+	    public function activate_vendor(){
+	    	if ( !empty($_POST["vendor_name"])) ) {
+	    		$this->model->activateVendor();
 	    	}
 	    }
 
-	    public function deactivate_vendor($vendor_name){
-	    	if ( !empty($vendor_name) ) {
-	    		$this->model->deactivateVendor($vendor_name);
+	    public function deactivate_vendor(){
+	    	if ( !empty($_POST["vendor_name"])) ) {
+	    		$this->model->deactivateVendor();
 	    	}
 	    }
 	}
