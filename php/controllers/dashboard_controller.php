@@ -16,6 +16,10 @@
 	    }
 
 	    public function edit_vendor(){
+	    	if(  !empty($_POST["vendor_name"]) && !empty($_POST["description"])  ){
+				$this->model->editVendor();
+			
+			}
 			return;
 	    }
 
