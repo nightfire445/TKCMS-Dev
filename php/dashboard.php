@@ -1,5 +1,6 @@
 <?php
-
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 	require "./models/dashboard_model.php";
 	require "./views/dashboard_view.php";
 	require "./controllers/dashboard_controller.php";
@@ -9,35 +10,36 @@
 	$view = new View($controller, $model);
 
 	if(!empty($_POST)){
-		//add_vendor
-		if(isset($_POST["add_vendor"])){
-			$controller->add_vendor();
-		}
 
 		//edit_vendor
 		if(isset($_POST["edit_vendor"])){
 			$controller->edit_vendor();
 		}
 
+		//add_vendor
+		else(isset($_POST["add_vendor"])){
+			$controller->add_vendor();
+		}
+
 		//delete_vendor
-		if( isset($_POST["delete_vendor"]) ){
+		elseif( isset($_POST["delete_vendor"]) ){
 			$controller->delete_vendor();
 		}
 
 		//Activate Vendor
-	    if( isset($_POST["activate_vendor"]) ){
+	    elseif( isset($_POST["activate_vendor"]) ){
 			$controller->activate_vendor();
 		}
 
 		//Deactivate Vendor
-		if( isset($_POST["deactivate_vendor"]) ){
+		elseif( isset($_POST["deactivate_vendor"]) ){
 			$controller->deactivate_vendor();
 		}
 
-		//refresh the page to reflect action after posting
-
-
-
+		//assume first html button as per https://stackoverflow.com/questions/2680160/how-can-i-tell-which-button-was-clicked-in-a-php-form-submit;
+		else{
+			$controller->add_vendor();
+		}
 	}
 	$view->output();
 ?>
