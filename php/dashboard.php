@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 		}
 
 		//add_vendor
-		else(isset($_POST["add_vendor"])){
+		elseif(isset($_POST["add_vendor"])){
 			$controller->add_vendor();
 		}
 
