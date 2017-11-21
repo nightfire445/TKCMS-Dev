@@ -119,7 +119,7 @@ class Model
         //get vendor and menu data 
         $get_vendor_query = $this->dbconn->prepare("SELECT * FROM `vendor` WHERE `id` = :id");
         $get_vendor = $this->dbconn->execute(array(":id" => $vendor_id));
-        $get_menu_query = $this->dbconn->execute("SELECT FROM `menu` WHERE `vendor_FK` = (SELECT `vendor_id` FROM `vendor` WHERE `id` =:id)");
+        $get_menu_query = $this->dbconn->prepare("SELECT FROM `menu` WHERE `vendor_FK` = (SELECT `vendor_id` FROM `vendor` WHERE `id` =:id)");
         $get_menu = $this->dbconn->execute(array(":id" => $vendor_id));
 
         //we need the filenames for existing vendor logo and menu if we are to delete them
