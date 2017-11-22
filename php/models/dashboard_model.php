@@ -133,11 +133,11 @@ class Model
 
         //delete files if applicable
         if( $logo_upload_result ){
-            deleteImage($old_vendor_logo);
+            $this->deleteImage($old_vendor_logo);
         }
 
         if( $menu_upload_result ){
-            deleteImage($old_vendor_menu);
+            $this->deleteImage($old_vendor_menu);
         }
 
 
