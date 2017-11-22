@@ -200,7 +200,7 @@ class Model
             $menu_url = $this->uploadImage($_FILES["menu"]);
 
              $insert_menu_query  = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE `vendor_id` = :id) )");
-            $status = $insert_menu->execute(array(':id' => $vendor_id, ':menu_url' => $menu_url));
+            $status = $insert_menu_query->execute(array(':id' => $vendor_id, ':menu_url' => $menu_url));
         }
 
         return;
