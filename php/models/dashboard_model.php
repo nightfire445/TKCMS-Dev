@@ -51,10 +51,10 @@ class Model
         }
     }
 
-    public function deleteImage($image){
+    public function deleteImage($imagename){
         $uploads_dir = $_SERVER["DOCUMENT_ROOT"] .'/resources/';
-        if (file_exists($uploads_dir.$filename)) {
-            unlink($uploads_dir.$filename);
+        if (file_exists($uploads_dir.$imagename)) {
+            unlink($uploads_dir.$imagename);
             return TRUE;
         } else {
             return FALSE;
