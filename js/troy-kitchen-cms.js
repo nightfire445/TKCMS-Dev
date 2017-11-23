@@ -55,7 +55,7 @@ function populateInfo(event, vendor_data) {
   var logo = vendor_data.logo;
   var insert_image = 'No Logo Available';
   if(logo != "") {
-    insert_image = "<img src='../resources/" + logo + "' alt='" + logo + " Not Found' class='logo'>";
+    insert_image = "<img src='../resources/" + logo + "' alt='Could not load " + logo + "' class='logo'>";
   }
   $("#existing_logo").html(insert_image);
   //TESTING IMAGE
