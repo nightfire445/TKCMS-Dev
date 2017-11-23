@@ -53,10 +53,11 @@ function populateInfo(event, vendor_data) {
   var desc = vendor_data.description;
   $("#edit-description").val(desc);
   var logo = vendor_data.logo;
+  var insert_image = 'No Logo Available';
   if(logo != "") {
-    var insert_image = "<img src='" + logo + "' alt='" + name + "' class='logo'>";
-    $("#existing_logo").html(insert_image);
+    insert_image = "<img src='" + logo + "' alt='" + name + "' class='logo'>";
   }
+  $("#existing_logo").html(insert_image);
   //TESTING IMAGE
 //  var logo = "https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png";
 //  if(logo != null) {
