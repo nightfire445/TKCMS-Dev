@@ -60,6 +60,7 @@
 
 
   <div class="center">
+<!--
     <ul id="stallList">
       <li class="stall" data-desc="Stall One Info">
         <a href="#content" class="thumbnail">
@@ -94,7 +95,14 @@
         </a>      
       </li>
     </ul>
+-->
 
+    <?php 
+
+          foreach ($vendors as $vendor){
+            echo "<p>$vendors['name']</p>";
+          } 
+    ?>
     <div id="content">
       <p>About Troy Kitchen</p>
     </div>
