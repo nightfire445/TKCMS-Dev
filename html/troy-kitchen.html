@@ -60,8 +60,17 @@
 
 
   <div class="center">
-<!--
+
     <ul id="stallList">
+      <?php
+        foreach($vendors as $vendor) {
+          $result = '<li class="stall" data-desc="' . $vendor['name'] . ' Info"><a href="#content" class="thumbnail"><div class="image">
+            <img src="../resources/' . $vendor['logo'] . '" alt="' . $vendor['name'] . '" class="img img-response full-width">
+          </div></a></li>';
+          echo $result;
+        }
+      ?>
+<!--
       <li class="stall" data-desc="Stall One Info">
         <a href="#content" class="thumbnail">
           <div class="image">
@@ -94,8 +103,8 @@
           </div>
         </a>      
       </li>
-    </ul>
 -->
+    </ul>
 
     <?php 
 
