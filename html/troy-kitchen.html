@@ -100,7 +100,8 @@
     <?php 
 
           foreach ($vendors as $vendor){
-            echo "<p>$vendors['name']</p>";
+            $result = '<p>' . $vendors['name'] . '</p>';
+            echo $result;
           } 
     ?>
     <div id="content">
