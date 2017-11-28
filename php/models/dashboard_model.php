@@ -32,7 +32,7 @@ class Model
     public function loadVendorImages($vendor_id){
         $get_images_query = $this->dbconn->prepare("SELECT * FROM `image` WHERE `vendor_FK` = :vendor_id");
         $images = $get_images_query->execute(array(":vendor_id" => $vendor_id));
-        return $images;
+        return $images->fetchAll();
     }
 
 
