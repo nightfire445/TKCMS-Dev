@@ -13,6 +13,11 @@ class View
         $vendors = $this->model->loadVendors();
         require_once($this->model->template);
 
+        if(error_reporting() & E_ALL){
+            var_dump($vendors);
+        }
     }
+
+
 }
 ?>
