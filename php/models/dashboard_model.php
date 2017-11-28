@@ -43,7 +43,7 @@ class Model
 
         //we need to get the images associated with each vendor
         foreach ($vendors as $key => $value) {
-            array_push( $vendors[$key]["images"], $this->loadVendorImages($vendors[$key]['vendor_id']) );
+            $vendors[$key]["images"] = $this->loadVendorImages($vendors[$key]['vendor_id']);
         }
 
     	return $vendors;
