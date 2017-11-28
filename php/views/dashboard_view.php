@@ -14,7 +14,10 @@ class View
         require_once($this->model->template);
 
         if(error_reporting() & E_ALL){
-            var_dump($vendors);
+            foreach ($vendors as $vendor) {
+               var_dump($vendor);
+            }
+            
         }
     }
 
