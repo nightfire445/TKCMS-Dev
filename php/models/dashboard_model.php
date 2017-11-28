@@ -13,8 +13,7 @@ function restructureFilesArray($files)
 
 class Model
 {
-    public $string; 
-    public $vendors;   
+    public $string;   
     private $dbconn;
 
     public function __construct(){
@@ -30,12 +29,24 @@ class Model
         $this->template = $filelocation;
     }
 
-    public function loadVendors(){
-    	$get_vendors_query = "SELECT * FROM `vendor`";
-        $get_vendors = $this->dbconn->query($get_vendors_query);
-    	$this->vendors = $get_vendors->fetchAll();
+    public function loadVendorImages($vendor_id){
+        $get_images_query = $this->dbconn->prepare("SELECT * FROM `images` WHERE `vendor_FK` = :vendor_id");
+        $images = $get_images_query->execute(array(":vendor_id" => $vendor_id));
+        return $images;
+    }
 
-    	return $this->vendors;
+
+    public function loadVendors(){
+    	$get_vendors_query = "SELECT * FROM `vendor` LEFT JOIN `menu` ON `vendor`.vendor_id = `menu`.vendor_FK";
+        $get_vendors = $this->dbconn->query($get_vendors_query);
+    	$vendors = $get_vendors->fetchAll();
+
+        //we need to get the images associated with each vendor
+        foreach ($vendors as $key => $value) {
+             $vendors["images"] = loadVendorImages($vendors['vendor_id']);
+        }
+
+    	return $vendors;
     }
 
     public function uploadImage($image){
