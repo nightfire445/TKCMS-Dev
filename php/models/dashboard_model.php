@@ -64,6 +64,11 @@ class Model
 
     public function deleteImage($imagename){
         $uploads_dir = $_SERVER["DOCUMENT_ROOT"] .'/resources/';
+
+        if(error_reporting() & E_ALL){
+            echo "$imagename :" . $imagename;
+        }
+        
         if (file_exists($uploads_dir.$imagename)) {
             unlink($uploads_dir.$imagename);
             return TRUE;
@@ -199,7 +204,7 @@ class Model
         }
         foreach ($image_urls as $image_url) {
             
-            $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE `id` = :id) )");
+            $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE `image_id` = :id) )");
             $status = $insert_image->execute(array(':id' => $vendor_id, ':image_url' => $image_url));
         }
         
