@@ -52,7 +52,7 @@ function populateInfo(event, vendor_data) {
   $("#edit-vendor-name").val(name);
   var desc = vendor_data.description;
   $("#edit-description").val(desc);
-  var id = vendor_data.id;
+  var id = vendor_data.vendor_id;
   $("#vendor-id").val(id);
 //  var logo = vendor_data.logo;
 //  if(logo != null) {
