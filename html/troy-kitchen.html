@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Troy Kitchen</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="../css/troy-kitchen.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+  <!-- Load Scripts, troy-kitchen.js includes the hover jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="../js/troy-kitchen.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="page-header">
+    <div class="row align-items-center text-center">
+      <div class="col">
+        <!-- Placeholder lef col -->
+      </div>
+
+      <div class="col-m-8">
+        <img src="../resources/tklogo.png" alt="logo" id="tkLogo" class="img-fluid">
+      </div>
+
+      <div class="col">
+        <div class="address">
+          77 Congress St, Troy, NY 12180
+        </div>
+        <div class="phone">
+          (518) 268-0068
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end header container  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+              <ul class="navbar-nav nav-fill w-100">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="../html/hours.html">Hours</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+
+  <div class="center">
+
+    <ul id="stallList">
+      <?php
+        foreach($vendors as $vendor) {
+          $result = '<li class="stall" data-desc="' . $vendor['name'] . ' Info"><a href="#content" class="thumbnail"><div class="image">
+            <img src="../resources/' . $vendor['logo'] . '" alt="' . $vendor['name'] . '" class="img img-response full-width">
+          </div></a></li>';
+          echo $result;
+        }
+      ?>
+<!--
+      <li class="stall" data-desc="Stall One Info">
+        <a href="#content" class="thumbnail">
+          <div class="image">
+            <img src="../resources/HalalPalace.png" class="img img-response full-width">
+          </div>
+        </a>
+      </li>
+      <li class="stall" data-desc="Stall Two Info">
+        <a href="#content" class="thumbnail">
+          <div class="image">
+            <img src="../resources/MKIslandHut.png" class="img img-response full-width">
+          </div>
+        </a>      </li>
+      <li class="stall" data-desc="Stall Three Info">
+        <a href="#content" class="thumbnail">
+          <div class="image">
+            <img src="../resources/GrandmaGs.png" class="img img-response full-width">
+          </div>
+        </a>      </li>
+      <li class="stall" data-desc="Stall Four Info">
+        <a href="#content" class="thumbnail">
+          <div class="image">
+            <img src="../resources/Mexocina.png" class="img img-response full-width">
+          </div>
+        </a>      </li>
+      <li class="stall" data-desc="Stall Five Info">
+        <a href="#content" class="thumbnail">
+          <div class="image">
+            <img src="../resources/ChoopedCheezus.png" class="img img-response full-width">
+          </div>
+        </a>      
+      </li>
+-->
+    </ul>
+    <div id="content">
+      <p>About Troy Kitchen</p>
+    </div>
+  </div>
+</body>
+
+</html>
