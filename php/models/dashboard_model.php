@@ -141,9 +141,12 @@ class Model
         //we need the filenames for existing vendor logo and menu if we are to delete them
         $old_vendor_logo = $get_vendor["logo"];
         $old_vendor_menu = $get_menu["menu_url"];
-        echo "<script>console.log('here');</script>";
-        echo "<script>console.log('".$old_vendor_menu."');</script>";
-        echo "<script>console.log('".$old_vendor_logo."');</script>";
+         
+        if(error_reporting() & E_ALL){
+            var_dump($old_vendor_menu);
+            var_dump($old_vendor_logo);
+        }  
+
         //faster to use the result than to repeatedly compare
         $logo_upload_result = $_FILES['logo']['error'] == 0; 
         $menu_upload_result = $_FILES['menu']['error'] == 0; 
@@ -215,7 +218,7 @@ class Model
         if( $menu_upload_result ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
 
-             $insert_menu_query  = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE `vendor_id` = :id) )");
+            $insert_menu_query  = $this->dbconn->prepare("UPDATE `menu` SET `menu_url` = :menu_url WHERE `vendor_FK` = :id");
             $status = $insert_menu_query->execute(array(':id' => $vendor_id, ':menu_url' => $menu_url));
         }
 
