@@ -20,16 +20,11 @@
 
 <body>
   <div class="page-header">
-    <div class="row align-items-center text-center">
-      <div class="col">
-        <!-- Placeholder lef col -->
-      </div>
-
-      <div class="col-m-8">
+    <div class="row">
+      <div class="col-md-12">
         <img src="../resources/tklogo.png" alt="logo" id="tkLogo" class="img-fluid">
       </div>
-
-      <div class="col">
+      <div class="info_container">
         <div class="address">
           77 Congress St, Troy, NY 12180
         </div>
@@ -42,10 +37,7 @@
   <!-- end header container  -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="navbar-collapse collapse" id="navbar">
+          <div id="navbar">
               <ul class="navbar-nav nav-fill w-100">
                   <li class="nav-item">
                       <a class="nav-link" href="./events.html">Events</a>
@@ -64,12 +56,10 @@
 
   <div class="center">
 
-    <ul id="stallList">
+    <div id="stallList">
       <?php
         foreach($vendors as $vendor) {
-          $result = '<li class="stall" data-desc="' . $vendor['name'] . ' Info"><a href="#content" class="thumbnail"><div class="image">
-            <img src="../resources/' . $vendor['logo'] . '" alt="' . $vendor['name'] . '" class="img img-response full-width">
-          </div></a></li>';
+          $result = "<div class='stall' onmouseenter='populateContent(" . json_encode($vendor) . ")' data-desc='" . $vendor['name'] . " Info'><a href='#content' class='logo_anchor'><div class='image'><img src='../resources/" . $vendor['logo'] . "' alt='" . $vendor['name'] . "' class='img img-response full-width'></div></a></div>";
           echo $result;
         }
       ?>
@@ -107,7 +97,7 @@
         </a>
       </li>
 -->
-    </ul>
+    </div>
     <div id="content">
       <p>About Troy Kitchen</p>
     </div>

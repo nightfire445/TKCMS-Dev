@@ -1,30 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed');
+
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
 .center {
     margin: auto;
-    width: 75%;
+    width: 95%;
     padding: 10px;
+    margin-bottom: 50px;
+}
+
+.info_container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 #stallList {
     padding: 0;
-    margin: 0 10;
-    columns: 5;
-    list-style-type: none;
-}
-
-#stallList li{
-    font-size: 20px;
     text-align: center;
+    margin-bottom: 15px;
 }
 
-#stallList li a:hover {
-  text-decoration: none;
+.stall {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin: 5px;
 }
 
 #content {
-    height: 1000px;
     border: solid;
     text-align: center;
     font-size: 3em;
+    padding: 20px;
+    min-height: 600px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+    background-color: lightgray;
+}
+
+#content_container {
+  font-size: 14px;
 }
 
 #jumbotron {
@@ -32,10 +49,9 @@
 }
 
 #tkLogo {
-  width: 35%;
-  height: 35%;
+  width: 300px;
   display: block;
-  margin: 0 auto;
+  margin: 0px auto;
 }
 
 .page-header {
@@ -158,4 +174,55 @@
   width: 100%;
   height: 100%;
   padding: 2%;
+}
+
+.menu {
+  max-width: 95%;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+h3 {
+  font-style: italic;
+}
+
+.images {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.image-container {
+  width: 100%;
+  margin: 5px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 750px) {
+  .image-container {
+    width: 427px;
+    height: 320px;
+    margin: 5px;
+    display: inline-block;
+  }
+  
+  .center {
+      margin: auto;
+      width: 85%;
+      padding: 10px;
+      margin-bottom: 50px;
+  }
+  
+  .stall {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin: 5px;
+  }
 }
