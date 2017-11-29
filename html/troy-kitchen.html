@@ -61,10 +61,10 @@
 
   <div class="center">
 
-    <ul id="stallList">
+    <div id="stallList">
       <?php
         foreach($vendors as $vendor) {
-          $result = "<li class='stall' onmouseenter='populateContent(" . json_encode($vendor) . ")' data-desc='" . $vendor['name'] . " Info'><a href='#content' class='thumbnail'><div class='image'><img src='../resources/" . $vendor['logo'] . "' alt='" . $vendor['name'] . "' class='img img-response full-width'></div></a></li>";
+          $result = "<div class='stall' onmouseenter='populateContent(" . json_encode($vendor) . ")' data-desc='" . $vendor['name'] . " Info'><a href='#content' class='logo_anchor'><div class='image'><img src='../resources/" . $vendor['logo'] . "' alt='" . $vendor['name'] . "' class='img img-response full-width'></div></a></div>";
           echo $result;
         }
       ?>
@@ -102,7 +102,7 @@
         </a>      
       </li>
 -->
-    </ul>
+    </div>
     <div id="content">
       <p>About Troy Kitchen</p>
     </div>
