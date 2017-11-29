@@ -230,18 +230,18 @@ class Model
     }
 
     public function deleteVendor(){
-        $vendor_name = htmlspecialchars($_POST["vendor_name"], ENT_QUOTES);
+        $vendor_id = htmlspecialchars($_POST["vendor_id"], ENT_QUOTES);
 
         //TODO: delete images, menu, and logo file from server;
 
         //images and menu must be deleted before the vendor due to FK constraints
-        $delete_images = $this->dbconn->prepare("DELETE FROM `image` WHERE `vendor_FK` = (SELECT `vendor_id` FROM `vendor` WHERE name =:name)");
-        $status = $delete_images->execute(array(":name" => $vendor_name));
-        $delete_menu = $this->dbconn->prepare("DELETE FROM `menu` WHERE `vendor_FK` = (SELECT `vendor_id` FROM `vendor` WHERE name =:name)");
-        $status = $delete_menu->execute(array(":name" => $vendor_name));
+        $delete_images = $this->dbconn->prepare("DELETE FROM `image` WHERE `vendor_FK` = :vendor_id");
+        $status = $delete_images->execute(array(":vendor_id" => $vendor_id));
+        $delete_menu = $this->dbconn->prepare("DELETE FROM `menu` WHERE `vendor_FK` = :vendor_id");
+        $status = $delete_menu->execute(array(":vendor_id" => $vendor_id));
 
-        $delete_vendor = $this->dbconn->prepare("DELETE FROM `vendor` WHERE `name` = :name");
-        $status = $delete_vendor->execute( array(  ":name" => $vendor_name  ) );
+        $delete_vendor = $this->dbconn->prepare("DELETE FROM `vendor` WHERE `vendor_id` = :vendor_id");
+        $status = $delete_vendor->execute( array(  ":vendor_id" => $vendor_id  ) );
     }
 
     public function activateVendor(){

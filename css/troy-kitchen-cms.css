@@ -46,7 +46,9 @@
 }
 
 .vendor_name {
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  font-size: 18px;
 }
 
 .dropdown-item {
@@ -89,7 +91,7 @@
 }
 
 .btn_container {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .btn {
@@ -135,18 +137,51 @@
 }
 
 .modal-body {
-  width: 80%;
+  width: 95%;
   margin: auto;
 }
 
-#delete_vendor {
+.delete_btn {
   float: left;
 }
 
 .logo {
-  width: 200px;
-  height: 200px;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.existing {
   margin-bottom: 10px;
+}
+
+.delete-img {
+  float: right;
+}
+
+.images {
+  max-width: 74%;
+  overflow-wrap: break-word;
+}
+
+.image-container {
+  min-height: 50px;
+  margin-bottom: 20px;
+}
+
+.menu {
+  max-width: 100%;
+}
+
+#confirm-body {
+  text-align: center;
+}
+
+#active_vendors_container {
+  margin-bottom: 20px;
+}
+
+.file_upload {
+  font-size: 18px;
 }
 
 @media screen and (min-width: 750px) {
@@ -161,6 +196,29 @@
     float: right;
     margin-right: 20px;
     width: auto;
+  }
+  
+  .modal-body {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .images {
+    max-width: 80%;
+    overflow-wrap: break-word;
+  }
+  
+  .menu {
+    max-width: 80%;
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+    max-width: 50%;
+  }
+  
+  .file_upload {
+    font-size: 14px;
   }
 }
 
