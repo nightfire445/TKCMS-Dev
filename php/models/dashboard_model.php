@@ -169,7 +169,7 @@ class Model
 
 
         //update vendor name, description, & logo if applicable in the DB if 
-        if($vendor_name != $get_vendor["name"] || $vendor_description != $get_vendor["description"] || $logo_upload_result ){
+        if($vendor_name != $get_vendor[0]["name"] || $vendor_description != $get_vendor[0]["description"] || $logo_upload_result ){
 
             $update_vendor_query = "UPDATE `vendor` SET `name` = :name, `description` = :description";
             if( $_FILES['logo']['error'] == 0 ){
