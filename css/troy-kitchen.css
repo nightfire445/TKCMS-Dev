@@ -25,6 +25,7 @@
     text-align: center;
     font-size: 3em;
     padding: 20px;
+    min-height: 600px;
 }
 
 #jumbotron {
@@ -160,6 +161,11 @@ h3 {
 
 .images {
   display: block;
+  max-width: 100%;
+}
+
+.image-container {
   width: 30%;
   margin: 5px;
+  display: inline-block;
 }
