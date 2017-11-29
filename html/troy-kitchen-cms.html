@@ -169,7 +169,7 @@
             </div>
             <div class="modal-body">
               <p>Are you sure you want to delete this vendor?</p>
-              <button id="confirm_delete" type="button" class="btn btn-danger" name="confirm_delete" onclick="$('#delete_vendor').attr('type', 'submit');$('#delete_vendor').click();">Delete Vendor</button>
+              <button id="confirm_delete" type="button" class="btn btn-danger" name="confirm_delete" onclick="$('#delete_vendor').attr('type', 'submit');$('#delete_vendor').prop('onclick',null).off('click'); $('#delete_vendor').click();">Delete Vendor</button>
               <button type="button" class="btn btn-primary close" data-dismiss="modal" aria-label="Close">Cancel</button>
             </div>
             <div class="modal-footer">
