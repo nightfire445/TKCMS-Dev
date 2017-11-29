@@ -27,7 +27,7 @@ class Model
 
 
     public function loadVendors(){
-    	$get_vendors_query = "SELECT * FROM `vendor` WHERE `deployed` = 1 LEFT JOIN `menu` ON `vendor`.vendor_id = `menu`.vendor_FK";
+    	$get_vendors_query = "SELECT * FROM menu RIGHT JOIN (SELECT * FROM vendor WHERE deployed=1) as result ON menu.vendor_FK = result.vendor_id";
         $get_vendors = $this->dbconn->query($get_vendors_query);
     	$vendors = $get_vendors->fetchAll();
 
