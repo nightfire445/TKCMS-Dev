@@ -12,13 +12,12 @@ class View
     public function output(){
         $vendors = $this->model->loadVendors();
         require_once($this->model->template);
-
-//        if(error_reporting() & E_ALL){
-//            foreach ($vendors as $vendor) {
-//               var_dump($vendor);
-//            }
-//            
-//        }
+       if(error_reporting() & E_ALL){
+          foreach ($vendors as $vendor) {
+              var_dump($vendor);
+           }
+           
+       }
     }
 
 
