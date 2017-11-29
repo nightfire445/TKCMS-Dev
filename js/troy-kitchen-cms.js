@@ -54,7 +54,7 @@ function populateInfo(event, vendor_data) {
   $("#edit-description").val(desc);
   var logo = vendor_data.logo;
   var insert_image = 'No Logo Available';
-  if(logo != "") {
+  if(logo != "" & logo != null) {
     insert_image = "<img src='../resources/" + logo + "' alt='" + logo + "' class='logo'>";
   }
   $("#existing_logo").html(insert_image);
@@ -67,7 +67,7 @@ function populateInfo(event, vendor_data) {
   $("#existing_images").html(image_string);
   var menu = vendor_data.menu_url;
   var insert_menu = 'No Menu Available';
-  if(menu != "") {
+  if(menu != "" & menu != null) {
     insert_menu = "<img src='../resources/" + menu + "' alt='" + menu + "' class='menu'>";
   }
   $("#existing_menu").html(insert_menu);
