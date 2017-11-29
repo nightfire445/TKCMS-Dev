@@ -9,9 +9,13 @@ $(document).ready(function() {
   });
   
   $("#cancel").on('click', function() {
-    $("#edit_vendor").modal('toggle');
+    $("#edit_vendor").modal('toggle');    
+  });
+
+  $("#close").on('click', function(){
     $("#vendors_container").load("dashboard.php #vendors_container", function(responseTxt, statusTxt, xhr){console.log(responseTxt)});
   });
+
 });
 
 function populateLocation() {
