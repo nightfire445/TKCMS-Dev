@@ -144,10 +144,8 @@
 }
 
 .logo {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 10px;
-  max-width: 100%:
+  margin-bottom: 20px;
+  max-width: 100%;
 }
 
 .existing {
@@ -159,13 +157,17 @@
 }
 
 .images {
-  float: left;
-  width: 74%;
+  max-width: 74%;
   overflow-wrap: break-word;
 }
 
 .image-container {
   min-height: 50px;
+  margin-bottom: 20px;
+}
+
+.menu {
+  max-width: 100%;
 }
 
 @media screen and (min-width: 750px) {
@@ -183,8 +185,22 @@
   }
   
   .modal-body {
-    width: 80%;
+    width: 90%;
     margin: auto;
+  }
+  
+  .images {
+    max-width: 80%;
+    overflow-wrap: break-word;
+  }
+  
+  .menu {
+    max-width: 80%;
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+    max-width: 50%;
   }
 }
 
