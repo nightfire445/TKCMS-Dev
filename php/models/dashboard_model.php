@@ -242,12 +242,12 @@ class Model
         $status = $delete_vendor->execute( array(  ":name" => $vendor_name  ) );
     }
 
-    public function activateVendor($vendor_name){
+    public function activateVendor(){
         $activate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 1 WHERE `name` = :name");
         $status = $activate_vendor->execute( array(  ":name" => htmlspecialchars($_POST["vendor_name"], ENT_QUOTES) )  );
     }
 
-    public function deactivateVendor($vendor_name){
+    public function deactivateVendor(){
         $deactivate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 0 WHERE `name` = :name");
         $status = $deactivate_vendor->execute( array(  ":name" => htmlspecialchars($_POST["vendor_name"], ENT_QUOTES) )  );
     }
