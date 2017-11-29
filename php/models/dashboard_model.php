@@ -65,7 +65,7 @@ class Model
     public function deleteImage($imagename){
         $uploads_dir = $_SERVER["DOCUMENT_ROOT"] .'/resources/';
 
-        if(error_reporting() & E_ALL){
+        if(error_reporting() == E_ALL){
             var_dump($imagename);
         }
 
@@ -144,7 +144,7 @@ class Model
         $old_vendor_logo = $get_vendor["logo"];
         $old_vendor_menu = $get_menu["menu_url"];
          
-        if(error_reporting() & E_ALL){
+        if(error_reporting() == E_ALL){
             var_dump($old_vendor_menu);
             var_dump($old_vendor_logo);
         }  
