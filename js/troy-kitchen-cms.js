@@ -10,6 +10,7 @@ $(document).ready(function() {
   
   $("#cancel").on('click', function() {
     $("#edit_vendor").modal('toggle');
+    $("#vendors_container").load("dashboard.php #vendors_container");
   });
 });
 
@@ -46,7 +47,7 @@ function populateInfo(event, vendor_data) {
   var image_string = "";
   for(var i = 0; i < images.length; i++) {
     image_string += "<div id='image_"+ i +"' class='image-container'><img src='../resources/" + images[i].image_url + "' alt='" + images[i].image_url + "' class='images'>";
-    image_string += "<button type='button' class='btn btn-danger delete-img' onclick='$.post( \"dashboard.php\", { delete_image: \"\", image_url: \"" + images[i].image_url + "\" } ); $(\"#image_"+ i +"\").attr(\"hidden\", \"hidden\"); $(\"#vendors_container\").load(\"dashboard.php #vendors_container\"); '>Delete</button></div>";
+    image_string += "<button type='button' class='btn btn-danger delete-img' onclick='$.post( \"dashboard.php\", { delete_image: \"\", image_url: \"" + images[i].image_url + "\" } ); $(\"#image_"+ i +"\").attr(\"hidden\", \"hidden\"); '>Delete</button></div>";
   }
   $("#existing_images").html(image_string);
   var menu = vendor_data.menu_url;
