@@ -23,6 +23,7 @@
     <!-- Page Content -->
     <div id="container">
       <div id="header_container">
+<!--
         <div id="current_location">
           <div id="location">Current Location: Troy</div>
           <div class='dropdown btn-group'>
@@ -31,6 +32,7 @@
             </div>
           </div>
         </div>
+-->
       </div>
       <div id="btn_group_container">
         <button id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button>
@@ -151,7 +153,7 @@
                   <input type="file" id="edit-menu" name="menu">
                 </div>
                 <div class="modal-footer">
-                  <button id="del_vendor" class="btn btn-danger" type="button" onclick="$('#edit_vendor').modal('toggle');$('#confirm').modal('toggle');">Delete Vendor</button>
+                  <button id="del_vendor" class="btn btn-danger delete_btn" type="button">Delete Vendor</button>
                 <button style="display: none;" id="delete_vendor" type="submit" class="btn btn-danger" name="delete_vendor">Delete Vendor</button>
                   <button type="submit" class="btn btn-primary" name="edit_vendor">Save Changes</button>
                 </div>
@@ -165,14 +167,10 @@
       <div class="modal fade" id="confirm">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-            </div>
-            <div class="modal-body">
+            <div class="modal-body" id="#confirm-body">
               <p>Are you sure you want to delete this vendor?</p>
-              <button id="confirm_delete" type="button" class="btn btn-danger" name="confirm_delete" onclick="$('#delete_vendor').click();">Delete Vendor</button>
-              <button type="button" class="btn btn-primary close" data-dismiss="modal" aria-label="Close">Cancel</button>
-            </div>
-            <div class="modal-footer">
+              <button id="confirm_delete" type="button" class="btn btn-danger" name="confirm_delete">Delete Vendor</button>
+              <button id="cancel" type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Cancel</button>
             </div>
           </div>
         </div>
