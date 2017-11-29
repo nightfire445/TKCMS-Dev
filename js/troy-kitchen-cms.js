@@ -12,9 +12,9 @@ $(document).ready(function() {
     $("#edit_vendor").modal('toggle');    
   });
 
-  $("#close").on('click', function(){
-    $("#vendors_container").load("dashboard.php #vendors_container", function(responseTxt, statusTxt, xhr){console.log(responseTxt)});
-  });
+  $('#edit_vendor').on('hidden.bs.modal', function (e) {
+     $("#vendors_container").load("dashboard.php #vendors_container", function(responseTxt, statusTxt, xhr){console.log(responseTxt)});
+  })
 
 });
 
