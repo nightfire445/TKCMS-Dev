@@ -64,6 +64,11 @@ class Model
 
     public function deleteImage($imagename){
         $uploads_dir = $_SERVER["DOCUMENT_ROOT"] .'/resources/';
+
+        if(error_reporting() == E_ALL){
+            var_dump($imagename);
+        }
+
         if (file_exists($uploads_dir.$imagename)) {
             unlink($uploads_dir.$imagename);
             return TRUE;
@@ -129,16 +134,23 @@ class Model
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
         //get vendor and menu data 
         $get_vendor_query = $this->dbconn->prepare("SELECT * FROM `vendor` WHERE `vendor_id` = :id");
-        $get_vendor = $get_vendor_query->execute(array(":id" => $vendor_id));
-        $get_menu_query = $this->dbconn->prepare("SELECT * FROM `menu` WHERE `vendor_FK` = :id");
-        $get_menu = $get_menu_query->execute(array(":id" => $vendor_id));
+        $get_vendor_query->execute(array(":id" => $vendor_id));
+        $get_vendor = $get_vendor_query->fetchAll();
+        $get_menu_query = $this->dbconn->prepare("SELECT `menu_url` FROM `menu` WHERE `vendor_FK` = :id");
+        $get_menu_query->execute(array(":id" => $vendor_id));
+        $get_menu = $get_menu_query->fetchAll();
 
         //we need the filenames for existing vendor logo and menu if we are to delete them
-        $old_vendor_logo = $get_vendor["logo"];
-        $old_vendor_menu = $get_menu["menu_url"];
-        echo "<script>console.log('here');</script>";
-        echo "<script>console.log('".$old_vendor_menu."');</script>";
-        echo "<script>console.log('".$old_vendor_logo."');</script>";
+        $old_vendor_logo = $get_vendor[0]["logo"];
+        $old_vendor_menu = $get_menu[0]["menu_url"];
+         
+        if(error_reporting() == E_ALL){
+            var_dump($get_vendor);
+            var_dump($get_menu);
+            var_dump($old_vendor_menu);
+            var_dump($old_vendor_logo);
+        }  
+
         //faster to use the result than to repeatedly compare
         $logo_upload_result = $_FILES['logo']['error'] == 0; 
         $menu_upload_result = $_FILES['menu']['error'] == 0; 
@@ -157,7 +169,7 @@ class Model
 
 
         //update vendor name, description, & logo if applicable in the DB if 
-        if($vendor_name != $get_vendor["name"] || $vendor_description != $get_vendor["description"] || $logo_upload_result ){
+        if($vendor_name != $get_vendor[0]["name"] || $vendor_description != $get_vendor[0]["description"] || $logo_upload_result ){
 
             $update_vendor_query = "UPDATE `vendor` SET `name` = :name, `description` = :description";
             if( $_FILES['logo']['error'] == 0 ){
@@ -199,7 +211,7 @@ class Model
         }
         foreach ($image_urls as $image_url) {
             
-            $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE `id` = :id) )");
+            $insert_image = $this->dbconn->prepare("INSERT INTO `image` (`image_url`, `vendor_FK`) VALUES (:image_url, (SELECT `vendor_id` FROM `vendor` WHERE `vendor_id` = :id) )");
             $status = $insert_image->execute(array(':id' => $vendor_id, ':image_url' => $image_url));
         }
         
@@ -210,7 +222,7 @@ class Model
         if( $menu_upload_result ){
             $menu_url = $this->uploadImage($_FILES["menu"]);
 
-             $insert_menu_query  = $this->dbconn->prepare("INSERT INTO `menu` (`menu_url`, `vendor_FK`) VALUES (:menu_url, (SELECT `vendor_id` FROM `vendor` WHERE `vendor_id` = :id) )");
+            $insert_menu_query  = $this->dbconn->prepare("UPDATE `menu` SET `menu_url` = :menu_url WHERE `vendor_FK` = :id");
             $status = $insert_menu_query->execute(array(':id' => $vendor_id, ':menu_url' => $menu_url));
         }
 
@@ -232,12 +244,12 @@ class Model
         $status = $delete_vendor->execute( array(  ":vendor_id" => $vendor_id  ) );
     }
 
-    public function activateVendor($vendor_name){
+    public function activateVendor(){
         $activate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 1 WHERE `name` = :name");
         $status = $activate_vendor->execute( array(  ":name" => htmlspecialchars($_POST["vendor_name"], ENT_QUOTES) )  );
     }
 
-    public function deactivateVendor($vendor_name){
+    public function deactivateVendor(){
         $deactivate_vendor = $this->dbconn->prepare("UPDATE `vendor` SET `deployed` = 0 WHERE `name` = :name");
         $status = $deactivate_vendor->execute( array(  ":name" => htmlspecialchars($_POST["vendor_name"], ENT_QUOTES) )  );
     }
