@@ -135,7 +135,7 @@
 }
 
 .modal-body {
-  width: 80%;
+  width: 95%;
   margin: auto;
 }
 
@@ -147,6 +147,7 @@
   width: 200px;
   height: 200px;
   margin-bottom: 10px;
+  max-width: 100%:
 }
 
 .existing {
@@ -159,7 +160,7 @@
 
 .images {
   float: left;
-  width: 75%;
+  width: 74%;
   overflow-wrap: break-word;
 }
 
@@ -179,6 +180,11 @@
     float: right;
     margin-right: 20px;
     width: auto;
+  }
+  
+  .modal-body {
+    width: 80%;
+    margin: auto;
   }
 }
 
