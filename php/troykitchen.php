@@ -1,5 +1,6 @@
 <?php
-
+    ini_set("display_errors", 1);
+    error_reporting(E_ALL);
 	require "./models/website_model.php";
 	require "./views/website_view.php";
 	require "./controllers/website_controller.php";
