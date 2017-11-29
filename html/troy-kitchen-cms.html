@@ -22,8 +22,8 @@
     
     <!-- Page Content -->
     <div id="container">
-      <div id="header_container">
 <!--
+      <div id="header_container">
         <div id="current_location">
           <div id="location">Current Location: Troy</div>
           <div class='dropdown btn-group'>
@@ -32,8 +32,8 @@
             </div>
           </div>
         </div>
--->
       </div>
+-->
       <div id="btn_group_container">
         <button id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#add_vendors">Add Vendor</button>
       </div>
@@ -45,7 +45,7 @@
 
           foreach ($vendors as $vendor){
             if($vendor['deployed'] == 1 ){
-              $active_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='". $vendor['name'] ."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='deactivate_vendor' class='btn btn-danger btn-xs'>Deactivate</button></div></form></div>";
+              $active_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='". $vendor['name'] ."'><div class='btn_container'><button type='button' class='btn btn-default btn-lg' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='deactivate_vendor' class='btn btn-danger btn-md'>Deactivate</button></div></form></div>";
               echo $active_vendor;
             }
           } 
@@ -56,7 +56,7 @@
         <?php 
           foreach ($vendors as $vendor){
             if($vendor['deployed'] == 0){
-              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='".$vendor['name']."'><div class='btn_container'><button type='button' class='btn btn-default' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='activate_vendor' class='btn btn-success btn-xs'>Activate</button></div></form></div>";
+              $inactive_vendor = "<div class='vendor'><p class='vendor_name'>" . $vendor['name'] . "</p><form action='?' method='post'><input type='hidden' id='hidden_vendor_name' name='vendor_name' value='".$vendor['name']."'><div class='btn_container'><button type='button' class='btn btn-default btn-lg' onclick='populateInfo(event,". json_encode($vendor) . " )'>Edit Vendor</button><br/><button type='submit' name='activate_vendor' class='btn btn-success btn-md'>Activate</button></div></form></div>";
               echo $inactive_vendor;
             }
           } 
@@ -86,15 +86,15 @@
                 </div>
                  <div class="form-group">
                   <label for="logo" class="form-control-label">Upload Logo</label>
-                  <input type="file" id="logo" name="logo">
+                  <input class="file_upload" type="file" id="logo" name="logo">
                 </div>
                 <div class="form-group">
                   <label for="image" class="form-control-label">Upload Image(s)</label>
-                  <input type="file" id="images" name="images[]" multiple>
+                  <input class="file_upload" type="file" id="images" name="images[]" multiple>
                 </div>
                 <div class="form-group">
                   <label for="menu" class="form-control-label">Upload Menu</label>
-                  <input type="file" id="menu" name="menu">
+                  <input class="file_upload" type="file" id="menu" name="menu">
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary" name="add_vendor">Add Vendor</button>
@@ -128,33 +128,33 @@
                   <label for="description" class="form-control-label">Description:</label>
                   <input type="text" class="form-control" id="edit-description" name="description" required>
                 </div>
-                <p>Existing Logo:</p>
+                <p><strong>Existing Logo:</strong></p>
                 <div id="existing_logo" class="existing">
                   No Logo Available
                 </div>
                 <div class="form-group">
                   <label for="logo" class="form-control-label">Upload a New Logo</label>
-                  <input type="file" id="edit-logo" name="logo">
+                  <input class="file_upload" type="file" id="edit-logo" name="logo">
                 </div>
-                <p>Existing Images:</p>
+                <p><strong>Existing Images:</strong></p>
                 <div id="existing_images" class="existing">
                   No Images Uploaded for this Vendor
                 </div>
                 <div class="form-group">
                   <label for="image" class="form-control-label">Upload New Image(s)</label>
-                  <input type="file" id="edit-images" name="images[]" multiple>
+                  <input class="file_upload" type="file" id="edit-images" name="images[]" multiple>
                 </div>
-                <p>Existing Menu:</p>
+                <p><strong>Existing Menu:</strong></p>
                 <div id="existing_menu" class="existing">
                   No Menu Available
                 </div>
                 <div class="form-group">
                   <label for="menu" class="form-control-label">Upload a New Menu</label>
-                  <input type="file" id="edit-menu" name="menu">
+                  <input class="file_upload" type="file" id="edit-menu" name="menu">
                 </div>
                 <div class="modal-footer">
                   <button id="del_vendor" class="btn btn-danger delete_btn" type="button">Delete Vendor</button>
-                <button style="display: none;" id="delete_vendor" type="submit" class="btn btn-danger" name="delete_vendor">Delete Vendor</button>
+                  <button style="display: none;" id="delete_vendor" type="submit" class="btn btn-danger" name="delete_vendor">Delete Vendor</button>
                   <button type="submit" class="btn btn-primary" name="edit_vendor">Save Changes</button>
                 </div>
               </form>
