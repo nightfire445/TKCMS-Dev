@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
   $('#edit_vendor').on('hidden.bs.modal', function (e) {
-     $("#vendors_container").load("dashboard.php #vendors_container", function(responseTxt, statusTxt, xhr){console.log(responseTxt)});
+     $("#vendors_container").load("dashboard.php #vendors_container");
   })
 
 });

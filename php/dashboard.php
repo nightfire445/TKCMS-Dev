@@ -1,6 +1,5 @@
 <?php
-	ini_set('display_errors',1);
- 	error_reporting(E_ALL);
+
 	require "./models/dashboard_model.php";
 	require "./views/dashboard_view.php";
 	require "./controllers/dashboard_controller.php";
