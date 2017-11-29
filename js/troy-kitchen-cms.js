@@ -10,7 +10,7 @@ $(document).ready(function() {
   
   $("#cancel").on('click', function() {
     $("#edit_vendor").modal('toggle');
-    $("#vendors_container").load("dashboard.php #vendors_container");
+    $("#vendors_container").load("dashboard.php #vendors_container", function(responseTxt, statusTxt, xhr){console.log(responseTxt)});
   });
 });
 
