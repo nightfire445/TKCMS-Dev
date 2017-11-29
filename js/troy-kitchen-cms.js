@@ -55,20 +55,20 @@ function populateInfo(event, vendor_data) {
   var logo = vendor_data.logo;
   var insert_image = 'No Logo Available';
   if(logo != "") {
-    insert_image = "<img src='../resources/" + logo + "' alt='Could not load " + logo + "' class='logo'>";
+    insert_image = "<img src='../resources/" + logo + "' alt='" + logo + "' class='logo'>";
   }
   $("#existing_logo").html(insert_image);
   var images = vendor_data.images;
   var image_string = "";
   for(var i = 0; i < images.length; i++) {
-    image_string += "<div class='image-container'><img src='../resources/" + images[i].images_url + "' alt='Could not load " + images[i].images_url + "' class='images'>";
-    image_string += "<button class='remove-image'>x</button></div>";
+    image_string += "<div class='image-container'><img src='../resources/" + images[i].image_url + "' alt='" + images[i].image_url + "' class='images'>";
+    image_string += "<button class='btn btn-danger'>Delete image</button></div>";
   }
   $("#existing_images").html(image_string);
   var menu = vendor_data.menu_url;
   var insert_menu = 'No Menu Available';
   if(menu != "") {
-    insert_menu = "<img src='../resources/" + menu + "' alt='Could not load " + menu + "' class='menu'>";
+    insert_menu = "<img src='../resources/" + menu + "' alt='" + menu + "' class='menu'>";
   }
   $("#existing_menu").html(insert_menu);
   //TESTING IMAGE
