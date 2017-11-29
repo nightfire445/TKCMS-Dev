@@ -151,7 +151,7 @@ class Model
 
         //we need the filenames for existing vendor logo and menu if we are to delete them
         $old_vendor_logo = $get_vendor[0]["logo"];
-        $old_vendor_menu = $get_menu[0]["menu_url"];
+        $old_vendor_menu = $get_menu["menu_url"];
          
         if(error_reporting() == E_ALL){
             var_dump($get_vendor);
