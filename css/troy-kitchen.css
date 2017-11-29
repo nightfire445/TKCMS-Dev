@@ -26,6 +26,8 @@
     font-size: 3em;
     padding: 20px;
     min-height: 600px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+    background-color: lightgray;
 }
 
 #jumbotron {
@@ -165,7 +167,16 @@ h3 {
 }
 
 .image-container {
-  width: 30%;
+  width: 100%;
   margin: 5px;
   display: inline-block;
+}
+
+@media screen and (min-width: 750px) {
+  .image-container {
+    width: 427px;
+    height: 320px;
+    margin: 5px;
+    display: inline-block;
+  }
 }
