@@ -21,10 +21,10 @@
 }
 
 #content {
-    height: 1000px;
     border: solid;
     text-align: center;
     font-size: 3em;
+    padding: 20px;
 }
 
 #jumbotron {
@@ -142,4 +142,24 @@
 .row {
   margin-right: 0px!important;
   margin-left: 0px!important;
+}
+
+.menu {
+  max-width: 95%;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+h3 {
+  font-style: italic;
+}
+
+.images {
+  display: block;
+  width: 30%;
+  margin: 5px;
 }
