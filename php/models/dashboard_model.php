@@ -136,7 +136,7 @@ class Model
         $get_vendor_query = $this->dbconn->prepare("SELECT * FROM `vendor` WHERE `vendor_id` = :id");
         $get_vendor_query->execute(array(":id" => $vendor_id));
         $get_vendor = $get_vendor_query->fetchAll();
-        $get_menu_query = $this->dbconn->prepare("SELECT * FROM `menu` WHERE `vendor_FK` = :id");
+        $get_menu_query = $this->dbconn->prepare("SELECT `menu_url` FROM `menu` WHERE `vendor_FK` = :id");
         $get_menu_query->execute(array(":id" => $vendor_id));
         $get_menu = $get_menu_query->fetchAll();
 
