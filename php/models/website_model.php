@@ -19,12 +19,24 @@ class Model
         $this->template = $filelocation;
     }
 
-    public function loadVendors(){
-    	$get_vendors_query = "SELECT * FROM `vendor` WHERE `deployed` = 1";
-        $get_vendors = $this->dbconn->query($get_vendors_query);
-    	$this->vendors = $get_vendors->fetchAll();
+    public function loadVendorImages($vendor_id){
+        $get_images_query = $this->dbconn->prepare("SELECT * FROM `image` WHERE `vendor_FK` = :vendor_id");
+        $get_images_query->execute(array(":vendor_id" => $vendor_id));
+        return $get_images_query->fetchAll();
+    }
 
-    	return $this->vendors;
+
+    public function loadVendors(){
+    	$get_vendors_query = "SELECT * FROM `vendor` LEFT JOIN `menu` ON `vendor`.vendor_id = `menu`.vendor_FK";
+        $get_vendors = $this->dbconn->query($get_vendors_query);
+    	$vendors = $get_vendors->fetchAll();
+
+        //we need to get the images associated with each vendor
+        foreach ($vendors as $key => $value) {
+            $vendors[$key]["images"] = $this->loadVendorImages($vendors[$key]['vendor_id']);
+        }
+
+    	return $vendors;
     }
 }
 ?>
