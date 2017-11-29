@@ -218,7 +218,7 @@ class Model
     }
 
     public function deleteVendor(){
-        $vendor_name = htmlspecialchars($_POST["vendor_id"], ENT_QUOTES);
+        $vendor_id = htmlspecialchars($_POST["vendor_id"], ENT_QUOTES);
 
         //TODO: delete images, menu, and logo file from server;
 
