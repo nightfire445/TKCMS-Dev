@@ -145,6 +145,8 @@ class Model
         $old_vendor_menu = $get_menu["menu_url"];
          
         if(error_reporting() == E_ALL){
+            var_dump($get_vendor);
+            var_dump($get_menu);
             var_dump($old_vendor_menu);
             var_dump($old_vendor_logo);
         }  
