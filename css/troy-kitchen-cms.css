@@ -141,6 +141,10 @@
   margin: auto;
 }
 
+#delete-modal-dialog {
+  margin: 100px 10px;
+}
+
 .delete_btn {
   float: left;
 }
@@ -174,6 +178,7 @@
 
 #confirm-body {
   text-align: center;
+  padding: 20px;
 }
 
 #active_vendors_container {
@@ -192,7 +197,7 @@
   }
   
   .navbar-nav {
-    padding-top: 8px;
+    padding-top: 16px;
     float: right;
     margin-right: 20px;
     width: auto;
@@ -219,6 +224,15 @@
   
   .file_upload {
     font-size: 14px;
+  }
+  
+  #delete-modal-dialog {
+    margin: 200px auto;
+  }
+  
+  #confirm-body {
+    text-align: center;
+    padding: 30px;
   }
 }
 

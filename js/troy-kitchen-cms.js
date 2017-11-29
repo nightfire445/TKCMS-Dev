@@ -4,12 +4,12 @@ $(document).ready(function() {
     $("#confirm").modal('toggle');
   });
   
-  $("confirm_delete").on('click', function() {
+  $("#confirm_delete").on('click', function() {
     $("#delete_vendor").click();
   });
   
   $("#cancel").on('click', function() {
-    $("edit_vendor").modal('toggle');
+    $("#edit_vendor").modal('toggle');
   });
 });
 
