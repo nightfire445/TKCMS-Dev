@@ -46,7 +46,7 @@ function populateInfo(event, vendor_data) {
   var image_string = "";
   for(var i = 0; i < images.length; i++) {
     image_string += "<div class='image-container'><img src='../resources/" + images[i].image_url + "' alt='" + images[i].image_url + "' class='images'>";
-    image_string += "<button class='btn btn-danger delete-img'>Delete</button></div>";
+    image_string += "<button class='btn btn-danger delete-img' onclick='$.post( \"dashboard.php\", { delete_image: \"\", image_url: \"" + images[i].image_url + "\" } ); '>Delete</button></div>";
   }
   $("#existing_images").html(image_string);
   var menu = vendor_data.menu_url;
@@ -57,3 +57,4 @@ function populateInfo(event, vendor_data) {
   $("#existing_menu").html(insert_menu);
   $("#edit_vendor").modal();
 }
+

@@ -34,6 +34,10 @@
 			$controller->deactivate_vendor();
 		}
 
+		elseif( isset($_POST["delete_image"])  ){
+			$controller->delete_image_AJAX();
+		}
+
 		//assume first html button as per https://stackoverflow.com/questions/2680160/how-can-i-tell-which-button-was-clicked-in-a-php-form-submit;
 		else{
 			$controller->add_vendor();

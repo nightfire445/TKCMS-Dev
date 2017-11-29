@@ -40,5 +40,11 @@
 	    		$this->model->deactivateVendor();
 	    	}
 	    }
+
+	    public function delete_image_AJAX(){
+	    	if ( !empty($_POST["image_url"]) ){
+	    		$this->model->deleteImageAJAX();
+	    	}
+	    }
 	}
 ?>

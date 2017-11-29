@@ -77,6 +77,15 @@ class Model
         }
     }
 
+    public function deleteImageAJAX(){
+        $image_url = htmlspecialchars($_POST["image_url"], ENT_QUOTES);
+        $this->deleteImage($image_url);
+        $delete_image_query = $this->dbconn->prepare("DELETE FROM `image` WHERE `image_url` = :image_url");
+        $status = $delete_image_query->execute(array(":image_url" => $image_url));
+
+
+    }
+
     public function storeVendor(){
         
         $vendor_name = htmlspecialchars($_POST["vendor_name"], ENT_QUOTES);
