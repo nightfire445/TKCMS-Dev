@@ -62,7 +62,7 @@ function populateInfo(event, vendor_data) {
   var image_string = "";
   for(var i = 0; i < images.length; i++) {
     image_string += "<div class='image-container'><img src='../resources/" + images[i].image_url + "' alt='" + images[i].image_url + "' class='images'>";
-    image_string += "<button class='btn btn-danger'>Delete image</button></div>";
+    image_string += "<button class='btn btn-danger delete-img'>Delete image</button></div>";
   }
   $("#existing_images").html(image_string);
   var menu = vendor_data.menu_url;

@@ -153,6 +153,20 @@
   margin-bottom: 10px;
 }
 
+.delete-img {
+  float: right;
+}
+
+.images {
+  float: left;
+  width: 75%;
+  overflow-wrap: break-word;
+}
+
+.image-container {
+  min-height: 50px;
+}
+
 @media screen and (min-width: 750px) {
   .vendors_container {
     width: 620px;
