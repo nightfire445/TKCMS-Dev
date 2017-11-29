@@ -147,22 +147,20 @@ class Model
         $get_vendor = $get_vendor_query->fetchAll();
         $get_menu_query = $this->dbconn->prepare("SELECT `menu_url` FROM `menu` WHERE `vendor_FK` = :id");
         $get_menu_query->execute(array(":id" => $vendor_id));
-        $status_get_menu = $get_menu_query->rowCount();
+        $status_get_menu = $get_menu_query->rowCount() != '0';
         $get_menu = $get_menu_query->fetchAll();
 
         //we need the filenames for existing vendor logo and menu if we are to delete them
         
         $old_vendor_logo = $get_vendor[0]["logo"];
 
-        if($status_get_menu != '0'){
+        if($status_get_menu){
             $old_vendor_menu = $get_menu[0]["menu_url"];
         }
 
         if(error_reporting() == E_ALL){
             var_dump($get_vendor);
             var_dump($get_menu);
-            var_dump($old_vendor_menu);
-            var_dump($old_vendor_logo);
         }  
 
         //faster to use the result than to repeatedly compare
@@ -175,7 +173,7 @@ class Model
             $this->deleteImage($old_vendor_logo);
         }
 
-        if( $menu_upload_result ){
+        if( $menu_upload_result && $status_get_menu  ){
             $this->deleteImage($old_vendor_menu);
         }
 
