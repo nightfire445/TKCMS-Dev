@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
 }
 
 .center {
@@ -56,21 +57,14 @@ body {
 
 .page-header {
   background-color: inherit;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  border-bottom-style: solid;
-  border-bottom-color: black;
-  border-bottom-width: 2px;
+  padding-bottom: 15px;
+  padding-top: 20px;
 }
 
-/*#hours {
-  float: right;
-  display: block;
-  padding-right: 30px;
-  position: relative;
-  top: 30px;
-  margin: 0 auto;
-}*/
+.hours {
+  display: inline-block;
+  width: 300px;
+}
 
 .dropdown-select {
   position: relative;
@@ -204,6 +198,37 @@ h3 {
   font-size: 14px;
 }
 
+.navbar-nav {
+  display: inline-block!important;
+}
+
+.col-sm-4 {
+  width: 32.4%!important;
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-link {
+  color: white;
+  display: initial!important;
+}
+
+.nav-link:hover {
+  text-decoration: underline!important;
+  color: white!important;
+}
+
+.container {
+  padding: 5px;
+}
+
+#hours_container {
+  width: 100%;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+}
+
 @media screen and (min-width: 750px) {
   .image-container {
     width: 427px;
@@ -224,5 +249,22 @@ h3 {
     height: 200px;
     display: inline-block;
     margin: 5px;
+  }
+  
+  .nav-item {
+    width: auto;
+    display: block;
+  }
+  
+  .col-sm-4 {
+    width: 33%!important;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  #hours_container {
+    width: 604px;
+    margin: auto;
+    margin-top: 30px;
   }
 }
