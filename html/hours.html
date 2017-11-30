@@ -5,7 +5,6 @@
   <title>Troy Kitchen</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="../css/troy-kitchen.css">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
@@ -16,20 +15,16 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/troy-kitchen.css">
 </head>
 
 <body>
   <div class="page-header">
-    <div class="row align-items-center text-center">
-      <div class="col">
-        <!-- Placeholder lef col -->
-      </div>
-
-      <div class="col-m-8">
+    <div class="row">
+      <div class="col-md-12">
         <img src="../resources/tklogo.png" alt="logo" id="tkLogo" class="img-fluid">
       </div>
-
-      <div class="col">
+      <div class="info_container">
         <div class="address">
           77 Congress St, Troy, NY 12180
         </div>
@@ -42,109 +37,47 @@
   <!-- end header container  -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="navbar-collapse collapse" id="navbar">
-              <ul class="navbar-nav nav-fill w-100">
-                  <li class="nav-item">
-                      <a class="nav-link" href="./events.html">Events</a>
-                  </li>
-                  <li class="nav-item">
+          <div id="navbar" class="col-sm-12">
+                  <div class="col-sm-4">
+                      <a class="nav-link" href="../html/events.html">Events</a>
+                  </div>
+                  <div class="col-sm-4">
                       <a class="nav-link" href="../php/troykitchen.php">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Hours</a>
-                  </li>
-              </ul>
+                  </div>
+                  <div class="col-sm-4">
+                      <a class="nav-link" href="../html/hours.html">Hours</a>
+                  </div>
           </div>
       </div>
   </nav>
 
-  <div class="text-center">
-    <h1 class="display-4"> General Hours </h1>
-    <ul class="text-center list-unstyled">
-      <li> Monday: 12:00pm - 10:00pm </li>
-      <li> Tuesday: 12:00pm - 10:00pm </li>
-      <li> Wednesday: 12:00pm - 10:00pm </li>
-      <li> Thursday: 12:00pm - 10:00pm </li>
-      <li> Friday: 12:00pm - 2:00am </li>
-      <li> Saturday: 12:00pm -2:00am </li>
-      <li> Sunday: 12:00pm - 4:00pm </li>
-    </ul>
-  </div>
-
-  <br>
-  <br>
-
-  <div class="container text-center">
-    <div class="container row">
-      <div class="col">
-        <h2 class="display-6"> Stall One Hours </h2>
-          <ul class="text-center list-unstyled">
-            <li> Monday: 12:00pm - 10:00pm </li>
-            <li> Tuesday: 12:00pm - 10:00pm </li>
-            <li> Wednesday: 12:00pm - 10:00pm </li>
-            <li> Thursday: 12:00pm - 10:00pm </li>
-            <li> Friday: 12:00pm - 2:00am </li>
-            <li> Saturday: 12:00pm -2:00am </li>
-            <li> Sunday: 12:00pm - 4:00pm </li>
-          </ul>
-      </div>
-
-      <div class="col">
-        <h2 class="display-6"> Stall Two Hours </h2>
-          <ul class="text-center list-unstyled">
-            <li> Monday: 12:00pm - 10:00pm </li>
-            <li> Tuesday: 12:00pm - 10:00pm </li>
-            <li> Wednesday: 12:00pm - 10:00pm </li>
-            <li> Thursday: 12:00pm - 10:00pm </li>
-            <li> Friday: 12:00pm - 2:00am </li>
-            <li> Saturday: 12:00pm -2:00am </li>
-            <li> Sunday: 12:00pm - 4:00pm </li>
-          </ul>
-      </div>
-
-      <div class="col">
-        <h2 class="display-6"> Stall Three Hours </h2>
-          <ul class="text-center list-unstyled">
-            <li> Monday: 12:00pm - 10:00pm </li>
-            <li> Tuesday: 12:00pm - 10:00pm </li>
-            <li> Wednesday: 12:00pm - 10:00pm </li>
-            <li> Thursday: 12:00pm - 10:00pm </li>
-            <li> Friday: 12:00pm - 2:00am </li>
-            <li> Saturday: 12:00pm -2:00am </li>
-            <li> Sunday: 12:00pm - 4:00pm </li>
-          </ul>
-      </div>
-
+  <div id="hours_container">
+    <div class="text-center hours">
+      <h1 class="display-4"> General Hours </h1>
+      <ul class="text-center list-unstyled">
+        <li> Monday: 12:00pm - 10:00pm </li>
+        <li> Tuesday: 12:00pm - 10:00pm </li>
+        <li> Wednesday: 12:00pm - 10:00pm </li>
+        <li> Thursday: 12:00pm - 10:00pm </li>
+        <li> Friday: 12:00pm - 2:00am </li>
+        <li> Saturday: 12:00pm -2:00am </li>
+        <li> Sunday: 12:00pm - 4:00pm </li>
+      </ul>
     </div>
-    <div class="container row">
-      <div class="col">
-        <h2 class="display-6"> Stall Four Hours </h2>
-          <ul class="text-center list-unstyled">
-            <li> Monday: 12:00pm - 10:00pm </li>
-            <li> Tuesday: 12:00pm - 10:00pm </li>
-            <li> Wednesday: 12:00pm - 10:00pm </li>
-            <li> Thursday: 12:00pm - 10:00pm </li>
-            <li> Friday: 12:00pm - 2:00am </li>
-            <li> Saturday: 12:00pm -2:00am </li>
-            <li> Sunday: 12:00pm - 4:00pm </li>
-          </ul>
-      </div>
-      <div class="col">
-        <h2 class="display-6"> Stall Five Hours </h2>
-          <ul class="text-center list-unstyled">
-            <li> Monday: 12:00pm - 10:00pm </li>
-            <li> Tuesday: 12:00pm - 10:00pm </li>
-            <li> Wednesday: 12:00pm - 10:00pm </li>
-            <li> Thursday: 12:00pm - 10:00pm </li>
-            <li> Friday: 12:00pm - 2:00am </li>
-            <li> Saturday: 12:00pm -2:00am </li>
-            <li> Sunday: 12:00pm - 4:00pm </li>
-          </ul>
-      </div>
+
+    <div class="text-center hours">
+      <h1 class="display-4"> Bar Hours </h1>
+      <ul class="text-center list-unstyled">
+        <li> Monday: 12:00pm - 10:00pm </li>
+        <li> Tuesday: 12:00pm - 10:00pm </li>
+        <li> Wednesday: 12:00pm - 10:00pm </li>
+        <li> Thursday: 12:00pm - 1:00am </li>
+        <li> Friday: 12:00pm - 1:00am </li>
+        <li> Saturday: 12:00pm -1:00am </li>
+        <li> Sunday: 12:00pm - 4:00pm </li>
+      </ul>
     </div>
   </div>
+
 </body>
 </html>
