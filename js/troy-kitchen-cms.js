@@ -9,7 +9,8 @@ $(document).ready(function() {
   });
   
   $("#cancel").on('click', function() {
-    $("#edit_vendor").modal('toggle');    
+    $("#edit_vendor").modal('toggle');
+    $("#edit_vendor").addClass("model-open modal");
   });
 
   $('#edit_vendor').on('hidden.bs.modal', function (e) {
