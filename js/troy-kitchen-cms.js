@@ -7,11 +7,6 @@ $(document).ready(function() {
   $("#confirm_delete").on('click', function() {
     $("#delete_vendor").click();
   });
-  
-  $("#cancel").on('click', function() {
-    $("#edit_vendor").modal('toggle');
-    $("#edit_vendor").addClass("model-open modal");
-  });
 
   $('#edit_vendor').on('hidden.bs.modal', function (e) {
      $("#vendors_container").load("dashboard.php #vendors_container");
