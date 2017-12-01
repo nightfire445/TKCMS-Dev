@@ -228,6 +228,7 @@
   
   #delete-modal-dialog {
     margin: 200px auto;
+    width: 40%;
   }
   
   #confirm-body {
