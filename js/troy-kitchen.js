@@ -19,5 +19,8 @@ function populateContent(vendor_data) {
     image_string += "</div>";
   }
   output += image_string + "</div></div>";
+  if(screen.width < 500) {
+    $(document.body).scrollTop($("#content").offset().top);
+  }
   $("#content").html(output);
 }
