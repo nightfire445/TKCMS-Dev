@@ -21,8 +21,11 @@
     $stmt = $dbconn->prepare('SELECT * FROM user WHERE username=:username AND salted_password = :salted_password');
     $stmt->execute(array(':username' => $_POST['username'], ':salted_password' => $hashed_salt));
     $user = $stmt->fetch();
+    $user_count = $stmt->rowCount();
+    echo "<script>console.log('".$user_count."');</script>";
     //If the login is successful
-    if ($stmt->rowCount() != '0'){
+    if ($user_count != '0'){
+
         $_SESSION['username'] = $user['username'];
         $_SESSION['uid'] = $user['id'];
 
