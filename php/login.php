@@ -22,7 +22,7 @@
     $stmt->execute(array(':username' => $_POST['username'], ':salted_password' => $hashed_salt));
     $user = $stmt->fetch();
     $user_count = $stmt->rowCount();
-    echo "<script>console.log('".$user_count."');</script>";
+    var_dump($user_count);
     //If the login is successful
     if ($user_count != '0'){
 
