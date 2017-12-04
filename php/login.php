@@ -77,6 +77,7 @@
     <div class="container">
       <div class="row">
         <div class="Absolute-Center is-Responsive">
+          <h1>Troy Kitchen Content Management System</h1>
           <div class="col-sm-12 col-md-10 col-md-offset-1">
             <form action="login.php" method="post" id="loginForm" onsubmit="" class="medium-6 columns">
               <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
