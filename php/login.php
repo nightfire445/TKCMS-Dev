@@ -92,7 +92,7 @@
               </div>
 
               <div class="form-group">
-                <input id="submit" type="submit" class="btn btn-def btn-block" name="login" value="Login" />
+                <input id="submit" type="submit" class="btn btn-default btn-block" name="login" value="Login" />
               </div>
             </form>
           </div>
