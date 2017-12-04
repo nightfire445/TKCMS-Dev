@@ -1,13 +1,3 @@
-//code for hover of vendors
-$(document).ready( function() {
-
-//  $('.stall').on('mouseenter', function() {
-//      desc = $(this).attr('data-desc');
-//      $('#content').text(desc.name);
-//  });
-
-});
-
 function populateContent(vendor_data) {
   console.log(vendor_data);
   output = "";
@@ -29,5 +19,8 @@ function populateContent(vendor_data) {
     image_string += "</div>";
   }
   output += image_string + "</div></div>";
+  if(screen.width < 500) {
+    $(document.body).scrollTop($("#content").offset().top);
+  }
   $("#content").html(output);
 }

@@ -5,10 +5,10 @@
   <title>Troy Kitchen</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="../css/troy-kitchen.css">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
+  <!-- CSS for Social Media Buttons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Load Scripts, troy-kitchen.js includes the hover jQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="../js/troy-kitchen.js"></script>
@@ -16,20 +16,17 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/troy-kitchen.css">
+
 </head>
 
 <body>
   <div class="page-header">
-    <div class="row align-items-center text-center">
-      <div class="col">
-        <!-- Placeholder lef col -->
-      </div>
-
-      <div class="col-m-8">
+    <div class="row">
+      <div class="col-md-12">
         <img src="../resources/tklogo.png" alt="logo" id="tkLogo" class="img-fluid">
       </div>
-
-      <div class="col">
+      <div class="info_container">
         <div class="address">
           77 Congress St, Troy, NY 12180
         </div>
@@ -42,27 +39,35 @@
   <!-- end header container  -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="navbar-collapse collapse" id="navbar">
-              <ul class="navbar-nav nav-fill w-100">
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Events</a>
-                  </li>
-                  <li class="nav-item">
+          <div id="navbar" class="col-sm-12">
+                  <div class="col-sm-4">
+                      <a class="nav-link" href="../html/events.html">Events</a>
+                  </div>
+                  <div class="col-sm-4">
                       <a class="nav-link" href="../php/troykitchen.php">Home</a>
-                  </li>
-                  <li class="nav-item">
+                  </div>
+                  <div class="col-sm-4">
                       <a class="nav-link" href="../html/hours.html">Hours</a>
-                  </li>
-              </ul>
+                  </div>
           </div>
       </div>
   </nav>
   <div class="responsiveCal">
-    <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%2329527A&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=lpb0ntu1k691agkdncq58k6bv4%40group.calendar.google.com&amp;color=%23711616&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
   </div>
+  <footer>
+    <ul class="soc">
+      <li>
+        <a href="https://www.facebook.com/TroyKitchenNY/" class="fa fa-facebook"></a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/troykitchenny/" class="fa fa-instagram"></a>
+      </li>
+      <li>
+        <a href="https://twitter.com/troykitchen" class="fa fa-twitter"></a>
+      </li>
+    </ul>
+  </footer>
 
 </body>
 
