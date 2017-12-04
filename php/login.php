@@ -13,7 +13,7 @@
     $select_salt = $dbconn->prepare("SELECT salt FROM user WHERE username = :username");
     $select_salt->execute(array(':username' => $_POST['username']));
     $res = $select_salt->fetch();
-
+    var_dump($res);
     $salt = (isset($res) ) ? $res['salt'] : '';
     $raw_pass = $_POST['password'];
     //Hash the Salt and Raw Pass
@@ -22,6 +22,7 @@
     $stmt = $dbconn->prepare('SELECT * FROM user WHERE username=:username AND salted_password = :salted_password');
     $stmt->execute(array(':username' => $_POST['username'], ':salted_password' => $hashed_salt));
     $user = $stmt->fetch();
+    var_dump($user);
     //If the login is successful
     if ($stmt->rowCount() != '0'){
         $_SESSION['username'] = $user['username'];
