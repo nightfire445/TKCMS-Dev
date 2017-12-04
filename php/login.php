@@ -10,7 +10,7 @@
 
   if (isset($_POST['login']) || isset($_POST['register']) && isset($_POST['password'])  && isset($_POST['username']) ){
     //Obtain User's Salt
-    $select_salt = $dbconn->prepare("SELECT salt FROM users WHERE username = :username");
+    $select_salt = $dbconn->prepare("SELECT salt FROM user WHERE username = :username");
     $select_salt->execute(array(':username' => $_POST['username']));
     $res = $select_salt->fetch();
 
@@ -19,7 +19,7 @@
     //Hash the Salt and Raw Pass
     $hashed_salt = hash('sha256', $salt . $raw_pass);
     //Obtain the user info
-    $stmt = $dbconn->prepare('SELECT * FROM users WHERE username=:username AND password = :password');
+    $stmt = $dbconn->prepare('SELECT * FROM user WHERE username=:username AND password = :password');
     $stmt->execute(array(':username' => $_POST['username'], ':password' => $hashed_salt));
 
     //If the login is successful
