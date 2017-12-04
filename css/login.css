@@ -20,15 +20,25 @@ div.well{
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
-.Absolute-Center.is-Responsive {
-  width: 100%;
-  height: 60%;
-  min-width: 200px;
-  max-width: 500px;
-  padding: 40px;
-  text-align: center;
-}
+  .Absolute-Center.is-Responsive {
+    width: 100%;
+    height: 75%;
+    min-width: 200px;
+    max-width: 500px;
+    padding: 40px;
+    text-align: center;
+  }
 
+@media screen and (min-width: 750px) {
+  .Absolute-Center.is-Responsive {
+    width: 100%;
+    height: 60%;
+    min-width: 200px;
+    max-width: 500px;
+    padding: 40px;
+    text-align: center;
+  }
+}
 #submit {
 	color: black;
 }
