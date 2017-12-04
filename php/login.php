@@ -1,4 +1,6 @@
 <?php
+  ini_set('display_errors',1);
+  error_reporting(E_ALL);
   require_once dirname(__FILE__). "/db/connect.php";
 
   if(isset($_POST['password']) &&  $_POST['password'] == "" || isset($_POST['username']) && $_POST['username'] == "" ){
