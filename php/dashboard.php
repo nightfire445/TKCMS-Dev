@@ -1,5 +1,9 @@
 <?php
-
+	if( !isset($_SESSION['username']) ){
+		header('Location: ./login.php');
+        exit();
+	}
+	
 	require "./models/dashboard_model.php";
 	require "./views/dashboard_view.php";
 	require "./controllers/dashboard_controller.php";
