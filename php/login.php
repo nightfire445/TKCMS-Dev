@@ -1,4 +1,5 @@
 <?php
+  session_start();
   ini_set('display_errors',1);
   error_reporting(E_ALL);
   require_once dirname(__FILE__). "/db/connect.php";
@@ -25,7 +26,6 @@
     var_dump($user_count);
     //If the login is successful
     if ($user_count != '0'){
-        session_start();
         $_SESSION['username'] =  $user['username'];
         $_SESSION['uid'] = $user['id'];
 
