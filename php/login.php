@@ -23,9 +23,7 @@
     $stmt->execute(array(':username' => $_POST['username'], ':salted_password' => $hashed_salt));
 
     //If the login is successful
-    $user = $stmt->fetch();
-    var_dump($user);
-    if ($user){
+    if ($stmt->rowCount() != '0'){
         $_SESSION['username'] = $user['username'];
         $_SESSION['uid'] = $user['id'];
 
