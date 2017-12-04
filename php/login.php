@@ -18,6 +18,7 @@
     $raw_pass = $_POST['password'];
     //Hash the Salt and Raw Pass
     $hashed_salt = hash('sha256', $salt . $raw_pass);
+    var_dump($hashed_salt);
     //Obtain the user info
     $stmt = $dbconn->prepare('SELECT * FROM user WHERE username=:username AND salted_password = :salted_password');
     $stmt->execute(array(':username' => $_POST['username'], ':salted_password' => $hashed_salt));
