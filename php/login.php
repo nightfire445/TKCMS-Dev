@@ -82,7 +82,7 @@
       <div class="row">
         <div class="Absolute-Center is-Responsive">
           <div class="col-sm-12 col-md-10 col-md-offset-1">
-            <form action="login.php" method="post" id="loginForm" onsubmit="return validate_login(this);" class="medium-6 columns">
+            <form action="login.php" method="post" id="loginForm" onsubmit="" class="medium-6 columns">
               <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
