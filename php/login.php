@@ -83,12 +83,12 @@
               <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" placeholder="Name" name="username" id="name" />
+                <input type="text" class="form-control" placeholder="Username" name="username" id="name" />
               </div>
 
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input class="form-control" type="password" name="password" id="password" placeholder="password"/>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password"/>
               </div>
 
               <div class="form-group">
