@@ -3,7 +3,6 @@
   ini_set('display_errors',1);
   error_reporting(E_ALL);
   require_once dirname(__FILE__). "/db/connect.php";
-  var_dump($_SESSION);
   if(isset($_POST['password']) &&  $_POST['password'] == "" || isset($_POST['username']) && $_POST['username'] == "" ){
      $msg = "Username and password must not be left blank.";
 
@@ -23,7 +22,6 @@
     $stmt->execute(array(':username' => $_POST['username'], ':salted_password' => $hashed_salt));
     $user = $stmt->fetch();
     $user_count = $stmt->rowCount();
-    var_dump($user_count);
     //If the login is successful
     if ($user_count != '0'){
         $_SESSION['username'] =  $user['username'];
