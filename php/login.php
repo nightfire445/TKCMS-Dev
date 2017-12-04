@@ -25,8 +25,8 @@
     var_dump($user_count);
     //If the login is successful
     if ($user_count != '0'){
-
-        $_SESSION['username'] = $user['username'];
+        session_start();
+        $_SESSION['username'] =  $user['username'];
         $_SESSION['uid'] = $user['id'];
 
         $msg = 'Succesfully Logged in';
