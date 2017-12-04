@@ -21,7 +21,7 @@
     //Obtain the user info
     $stmt = $dbconn->prepare('SELECT * FROM user WHERE username=:username AND salted_password = :salted_password');
     $stmt->execute(array(':username' => $_POST['username'], ':salted_password' => $hashed_salt));
-
+    $user = $stmt->fetch();
     //If the login is successful
     if ($stmt->rowCount() != '0'){
         $_SESSION['username'] = $user['username'];
