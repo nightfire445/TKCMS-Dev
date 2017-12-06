@@ -51,6 +51,7 @@
     <div class="container">
       <div class="row">
         <div class="Absolute-Center is-Responsive">
+          <h3>Add Admin Account</h3>
           <form action="?" method="post" id="addAdminForm" onsubmit="" class="medium-12 columns">
               <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
               <div class="form-group input-group">
