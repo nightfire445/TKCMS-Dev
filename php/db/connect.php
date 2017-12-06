@@ -1,4 +1,3 @@
-
 <?php
 error_reporting(E_ALL); ini_set('display_errors', 1);
 $url = getenv('JAWSDB_MARIA_URL');
