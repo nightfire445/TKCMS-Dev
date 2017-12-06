@@ -5,7 +5,6 @@
         exit();
   }
 
-
   
 
   if(isset($_POST["add_admin"]) && $_POST['username'] != "" && $_POST['password'] != "" ){
@@ -13,12 +12,13 @@
     require_once dirname(__FILE__). "/db/connect.php";
 
     $raw_pass = $_POST['password'];
-    $salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+ bin2hex(random_bytes( 22 ));
     $hashed_salt = hash('sha256', $salt . $raw_pass);
 
-     $dbconn->prepare("INSERT INTO `user` (`username`, `salt`, `salted_password`, `admin`) VALUES (:username, :salt, :salted_password, :admin)");
+    $stmt = $dbconn->prepare("INSERT INTO `user` (`username`, `salt`, `salted_password`, `admin`) VALUES (:username, :salt, :salted_password, :admin)");
 
-     $dbconn->execute(array(":username" => htmlspecialchars($_POST['username'], ENT_QUOTES), ":salt" => $salt, ":salted_password" => $hashed_salt, ":admin" => 1));
+     $stmt->execute(array(":username" => htmlspecialchars($_POST['username'], ENT_QUOTES), ":salt" => $salt, ":salted_password" => $hashed_salt, ":admin" => 1));
+
      
      $msg = "Admin Added";
   }
@@ -48,7 +48,7 @@
 
 <body>
   <div id="form-wrapper">
-    <form action="?" method="post" id="addAdminForm" onsubmit="" class="medium-6 columns">
+    <form action="?" method="post" id="addAdminForm" onsubmit="" class="medium-12 columns">
         <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
