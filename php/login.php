@@ -76,21 +76,22 @@
     <div class="container">
       <div class="row">
         <div class="Absolute-Center is-Responsive">
+          <h1>Troy Kitchen Content Management System</h1>
           <div class="col-sm-12 col-md-10 col-md-offset-1">
             <form action="login.php" method="post" id="loginForm" onsubmit="" class="medium-6 columns">
               <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" placeholder="Name" name="username" id="name" />
+                <input type="text" class="form-control" placeholder="Username" name="username" id="name" />
               </div>
 
               <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input class="form-control" type="password" name="password" id="password" placeholder="password"/>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password"/>
               </div>
 
               <div class="form-group">
-                <input id="submit" type="submit" class="btn btn-def btn-block" name="login" value="Login" />
+                <input id="submit" type="submit" class="btn btn-default btn-block" name="login" value="Login" />
               </div>
             </form>
           </div>
