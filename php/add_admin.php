@@ -48,21 +48,27 @@
 
 <body>
   <div id="form-wrapper">
-    <form action="?" method="post" id="addAdminForm" onsubmit="" class="medium-12 columns">
-        <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
-        <div class="form-group input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input type="text" class="form-control" placeholder="Username" name="username" id="name" />
-        </div>
+    <div class="container">
+      <div class="row">
+        <div class="Absolute-Center is-Responsive">
+          <form action="?" method="post" id="addAdminForm" onsubmit="" class="medium-12 columns">
+              <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" placeholder="Username" name="username" id="name" />
+              </div>
 
-        <div class="form-group input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input class="form-control" type="password" name="password" id="password" placeholder="Password"/>
-        </div>
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password"/>
+              </div>
 
-        <div class="form-group">
-          <input id="submit" type="submit" class="btn btn-def btn-block" name="add_admin" value="Submit" />
+              <div class="form-group">
+                <input id="submit" type="submit" class="btn btn-def btn-block" name="add_admin" value="Submit" />
+              </div>
+          </form>
         </div>
-    </form>
+      </div>
+    </div>
   </div>
 </body>
