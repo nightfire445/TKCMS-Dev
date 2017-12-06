@@ -16,9 +16,9 @@
     $salt = random_bytes( 22 );
     $hashed_salt = hash('sha256', $salt . $raw_pass);
 
-     $dbconn->prepare("INSERT INTO `user` (`username`, `salt`, `salted_password`, `admin`) VALUES (:username, :salt, :salted_password, :admin)");
+    $stmt = $dbconn->prepare("INSERT INTO `user` (`username`, `salt`, `salted_password`, `admin`) VALUES (:username, :salt, :salted_password, :admin)");
 
-     $dbconn->execute(array(":username" => htmlspecialchars($_POST['username'], ENT_QUOTES), ":salt" => $salt, ":salted_password" => $hashed_salt, ":admin" => 1));
+     $stmt->execute(array(":username" => htmlspecialchars($_POST['username'], ENT_QUOTES), ":salt" => $salt, ":salted_password" => $hashed_salt, ":admin" => 1));
      
      $msg = "Admin Added";
   }
