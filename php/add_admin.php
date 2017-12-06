@@ -4,7 +4,7 @@
     header('Location: ./login.php');
         exit();
   }
-
+  error_reporting(E_ALL); ini_set('display_errors', 1);
 
   
 
@@ -48,7 +48,7 @@
 
 <body>
   <div id="form-wrapper">
-    <form action="?" method="post" id="addAdminForm" onsubmit="" class="medium-6 columns">
+    <form action="?" method="post" id="addAdminForm" onsubmit="" class="medium-12 columns">
         <?php if (isset($msg)) echo "<p class=\"err-msg\">$msg</p>"; $msg = NULL;?>
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
