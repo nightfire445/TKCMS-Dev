@@ -12,7 +12,7 @@
     require_once dirname(__FILE__). "/db/connect.php";
 
     $raw_pass = $_POST['password'];
- bin2hex(random_bytes( 22 ));
+    $salt = bin2hex(random_bytes( 22 ));
     $hashed_salt = hash('sha256', $salt . $raw_pass);
 
     $stmt = $dbconn->prepare("INSERT INTO `user` (`username`, `salt`, `salted_password`, `admin`) VALUES (:username, :salt, :salted_password, :admin)");
