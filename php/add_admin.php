@@ -4,8 +4,6 @@
     header('Location: ./login.php');
         exit();
   }
-  error_reporting(E_ALL); ini_set('display_errors', 1);
-
   
 
   if(isset($_POST["add_admin"]) && $_POST['username'] != "" && $_POST['password'] != "" ){
