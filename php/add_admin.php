@@ -65,7 +65,7 @@
               </div>
 
               <div class="form-group">
-                <input id="submit" type="submit" class="btn btn-def btn-block" name="add_admin" value="Submit" />
+                <input id="submit" type="submit" class="btn btn-default btn-block" name="add_admin" value="Submit" />
               </div>
           </form>
         </div>
