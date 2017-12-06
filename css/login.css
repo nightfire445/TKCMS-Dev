@@ -7,6 +7,7 @@ body{
   background: -o-linear-gradient(to bottom, #111111 50%, #FFFFFF) !important;
   background: linear-gradient(to bottom, #111111 50%, #FFFFFF) !important;
   color: white;
+  height: 100vh;
 }
 
 div.well{
@@ -19,14 +20,33 @@ div.well{
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
-.Absolute-Center.is-Responsive {
-  width: 50%;
-  height: 50%;
-  min-width: 200px;
-  max-width: 400px;
-  padding: 40px;
-}
+  .Absolute-Center.is-Responsive {
+    width: 100%;
+    height: 75%;
+    min-width: 200px;
+    max-width: 500px;
+    padding: 40px;
+    text-align: center;
+  }
 
+@media screen and (min-width: 750px) {
+  .Absolute-Center.is-Responsive {
+    width: 100%;
+    height: 60%;
+    min-width: 200px;
+    max-width: 500px;
+    padding: 40px;
+    text-align: center;
+  }
+}
 #submit {
 	color: black;
+}
+
+#submit:hover {
+  background-color: #B0B0B0;
+}
+
+h1 {
+  margin-bottom: 20px;
 }

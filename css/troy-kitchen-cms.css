@@ -12,7 +12,7 @@
 }
 
 .navbar-nav {
-  padding-top: 8px;
+  padding-top: 0px;
   width: 100%;
   text-align: right;
 }
@@ -95,7 +95,7 @@
 }
 
 .btn {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .type_label {
@@ -186,7 +186,7 @@
 }
 
 .file_upload {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 750px) {
@@ -197,7 +197,7 @@
   }
   
   .navbar-nav {
-    padding-top: 16px;
+    padding-top: 5px;
     float: right;
     margin-right: 20px;
     width: auto;
@@ -245,7 +245,7 @@
   }
   
   .navbar-nav {
-    padding-top: 16px;
+    padding-top: 5px;
     float: right;
     margin-right: 20px;
     width: auto;
