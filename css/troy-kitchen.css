@@ -161,6 +161,10 @@ h3 {
   max-height: 100%;
 }
 
+.display-4 {
+  font-size: 2.5rem;
+}
+
 @media screen and (min-width: 750px) {
   .image-container {
     width: 427px;
@@ -192,6 +196,10 @@ h3 {
     width: 33%!important;
     text-align: center;
     display: inline-block;
+  }
+  
+  .hours-nav {
+    width: 32.4%!important;
   }
 
   #hours_container {
